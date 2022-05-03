@@ -40,6 +40,9 @@ export default defineConfig({
     ["footer-content", "centered sm:flex sm:justify-center sm:items-center"],
     ["footer-section", "bg-gray-800 rounded"],
     ["footer-item", "border-gray-700"],
+    ["footer-link", ""],
+    ["footer-link-icon", "text-size-2xl mr-2"],
+    ["footer-link-ext", "text-size-2xl"],
     ["footer-disclaimer", "flex-centered"],
 
     // Modal & Layout components
