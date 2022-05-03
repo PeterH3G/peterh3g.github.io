@@ -5,7 +5,7 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "deploy": "push-dir --dir=.nuxt/dist/ --branch=gh-pages --cleanup"
+    "deploy": "push-dir --dir=.nuxt/dist/client/ --branch=gh-pages --cleanup"
   },
   "devDependencies": {
     "@iconify-json/mdi": "^1.1.10",
