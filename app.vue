@@ -1,14 +1,14 @@
 <script setup>
-// .ENV data
-const githubUser = useRuntimeConfig().public.githubUser;
+// Pinia: Accessing getters and state
+import { storeToRefs } from "pinia";
+import { useMainStore } from "./store/main";
+import { useGithubStore } from "./store/github";
 
-// Application data
-const brandName = githubUser + " Pages";
+const main = useMainStore();
+const { brandName, items } = storeToRefs(main);
 
-// Github API data
-const { data: github } = await useFetch("https://api.github.com/users/" + githubUser, {
-  pick: ["avatar_url", "bio", "html_url", "name"],
-});
+const github = useGithubStore();
+const { user } = storeToRefs(github);
 
 // Head Management
 // example: titleTemplate: (title) => `My App - ${title}`
@@ -29,21 +29,10 @@ const routes = [
   { name: "About", to: "/about", icon: "i-mdi-account-school" },
 ];
 const navOptions = [{ name: "Options", icon: "i-mdi-tune" }];
-
-// Test items
-const testItems = [
-  { id: 0, title: "test item 1", body: "item 1 body" },
-  { id: 1, title: "test item 2", body: "item 2 body" },
-];
 </script>
 
 <template>
-  <AppNavigation
-    :brandName="brandName"
-    :githubName="github.name"
-    :githubAvatarUrl="github.avatar_url"
-    :routes="routes"
-  >
+  <AppNavigation :brandName="brandName" :routes="routes">
     <template #nav-menu-options>
       <button
         nav-button
@@ -62,10 +51,10 @@ const testItems = [
   <AppHeader />
 
   <main main-root flex flex-col justify-start items-stretch>
-    <NuxtPage :testItems="testItems" />
+    <NuxtPage :items="items" />
   </main>
 
-  <AppFooter :brandName="brandName" :github="github" />
+  <AppFooter :brandName="brandName" />
 </template>
 
 <style lang="css">

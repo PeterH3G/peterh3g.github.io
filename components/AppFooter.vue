@@ -1,7 +1,6 @@
 <script setup>
 defineProps({
   brandName: String,
-  github: Object,
 });
 
 const sectionClasses =

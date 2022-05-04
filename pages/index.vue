@@ -1,6 +1,6 @@
 <script setup>
 defineProps({
-  testItems: Array,
+  items: Array,
 });
 
 definePageMeta({
@@ -8,7 +8,7 @@ definePageMeta({
   icon: "i-mdi-earth",
 });
 
-const items = [
+const pageItems = [
   { id: 0, title: "welcome item 1", body: "item 1 body" },
   { id: 1, title: "welcome item 2", body: "item 2 body" },
 ];
@@ -26,13 +26,13 @@ const items = [
       </Teleport>
     </ClientOnly>
 
-    <section v-for="(item, index) in testItems" :key="index">
+    <section v-for="(item, index) in items" :key="index">
       <h2 article-title>
         {{ item.title }}
       </h2>
     </section>
 
-    <section v-for="(item, index) in items" :key="index">
+    <section v-for="(item, index) in pageItems" :key="index">
       <h2 article-title>
         {{ item.title }}
       </h2>

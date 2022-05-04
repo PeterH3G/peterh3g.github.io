@@ -1,8 +1,6 @@
 <script setup>
 defineProps({
   brandName: String,
-  githubName: String,
-  githubAvatarUrl: String,
   routes: Array,
 });
 
@@ -16,7 +14,6 @@ const showingNavigationDropdown = ref(false);
       <div w-full flex justify-between items-center>
         <NuxtLink nav-link href="/" flex justify-center items-center>
           <span flex justify-center items-center mr-1>
-            <img :src="githubAvatarUrl" width="25" />
             {{ brandName }}
           </span>
         </NuxtLink>

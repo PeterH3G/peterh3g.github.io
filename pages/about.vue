@@ -1,10 +1,14 @@
 <script setup>
+defineProps({
+  items: Array,
+});
+
 definePageMeta({
   title: "About",
   icon: "i-mdi-account-school",
 });
 
-const items = [
+const pageItems = [
   { id: 0, title: "About item 1", body: "item 1 body" },
   { id: 1, title: "About item 2", body: "item 2 body" },
 ];
@@ -24,6 +28,12 @@ const items = [
 
     <!-- Article content -->
     <section v-for="(item, index) in items" :key="index">
+      <h2 article-title>
+        {{ item.title }}
+      </h2>
+    </section>
+
+    <section v-for="(item, index) in pageItems" :key="index">
       <h2 article-title>
         {{ item.title }}
       </h2>
