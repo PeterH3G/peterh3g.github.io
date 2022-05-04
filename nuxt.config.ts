@@ -9,8 +9,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      appName: "",
-      githubUser: "", // Or a default value
+      githubUser: '',
     },
   },
 });

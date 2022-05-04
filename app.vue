@@ -1,6 +1,8 @@
 <script setup>
+// .ENV data
+const githubUser = useRuntimeConfig().public.githubUser;
+
 // Application data
-const githubUser = "PeterH3G";
 const brandName = githubUser + " Pages";
 
 // Github API data
@@ -27,6 +29,12 @@ const routes = [
   { name: "About", to: "/about", icon: "i-mdi-account-school" },
 ];
 const navOptions = [{ name: "Options", icon: "i-mdi-tune" }];
+
+// Test items
+const testItems = [
+  { id: 0, title: "test item 1", body: "item 1 body" },
+  { id: 1, title: "test item 2", body: "item 2 body" },
+];
 </script>
 
 <template>
@@ -54,7 +62,7 @@ const navOptions = [{ name: "Options", icon: "i-mdi-tune" }];
   <AppHeader />
 
   <main main-root flex flex-col justify-start items-stretch>
-    <NuxtPage />
+    <NuxtPage :testItems="testItems" />
   </main>
 
   <AppFooter :brandName="brandName" :github="github" />

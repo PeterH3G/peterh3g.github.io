@@ -1,4 +1,8 @@
 <script setup>
+defineProps({
+  testItems: Array,
+});
+
 definePageMeta({
   title: "Welcome",
   icon: "i-mdi-earth",
@@ -21,6 +25,12 @@ const items = [
         <div>Index footer</div>
       </Teleport>
     </ClientOnly>
+
+    <section v-for="(item, index) in testItems" :key="index">
+      <h2 article-title>
+        {{ item.title }}
+      </h2>
+    </section>
 
     <section v-for="(item, index) in items" :key="index">
       <h2 article-title>
