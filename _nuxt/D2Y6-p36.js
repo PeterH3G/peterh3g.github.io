@@ -1,0 +1,1 @@
+import{d as n,F as o,G as t,H as a,V as c,v as r}from"./inX2RqCS.js";const s="Hello Universe!",u=n({__name:"index",setup(p){const e=o().meta.icon;return(i,d)=>(r(),t(c,{"prepend-icon":a(e),title:s},null,8,["prepend-icon"]))}});export{u as default};
