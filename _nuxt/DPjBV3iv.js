@@ -1,0 +1,1 @@
+import{d as t,F as n,G as o,H as a,V as c,v as r}from"./VjnONrF8.js";const s="About PeterH3G!",_=t({__name:"about",setup(p){const e=n().meta.icon;return(u,d)=>(r(),o(c,{"prepend-icon":a(e),title:s},null,8,["prepend-icon"]))}});export{_ as default};
