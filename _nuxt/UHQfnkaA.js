@@ -1,0 +1,1 @@
+import{g as t,h as o,r as s,o as c}from"./DoNNQbwt.js";const n={},r={class:"container flex flex-col justify-center items-center"};function a(e,l){return c(),o("main",r,[s(e.$slots,"default")])}const _=t(n,[["render",a]]);export{_ as default};
