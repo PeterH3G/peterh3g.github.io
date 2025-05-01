@@ -1,11 +1,6 @@
 <script lang="ts" setup>
 import { appDescription, appName } from '~/constants/app'
 
-// Server API query
-const { data: app } = await useLazyFetch('/api/app', {
-  pick: ['modal']
-})
-
 // SEO configuration
 useSeoMeta({
   title: appName,
@@ -25,6 +20,13 @@ const sidebar = {
     isIcon: useAppConfig().ui.sidebar.buttons.isIcon,
   }
 }
+
+const modal = {
+  icon: 'lucide:eye', // button & dialog
+  label: "Information", // button
+  title: "Application Information", // dialog
+  description: "Specifications and features", // dialog
+}
 </script>
 
 <template>
@@ -39,7 +41,7 @@ const sidebar = {
 
       <AppButtons isHeader>
         <template #buttons>
-          <AppBtnModal :isIcon="header.buttons.isIcon" class="app-modal" :modal="app?.modal" />
+          <AppBtnModal :isIcon="header.buttons.isIcon" class="app-modal" :modal="modal" />
           <AppBtnTheme :isIcon="header.buttons.isIcon" class="app-theme" label="Theme" />
         </template>
       </AppButtons>
@@ -50,7 +52,7 @@ const sidebar = {
           <AppNavigation />
         </template>
         <template #footer>
-          <AppBtnModal :isIcon="sidebar.buttons.isIcon" class="app-modal" :modal="app?.modal" />
+          <AppBtnModal :isIcon="sidebar.buttons.isIcon" class="app-modal" :modal="modal" />
           <AppBtnTheme :isIcon="sidebar.buttons.isIcon" class="app-theme" label="Theme" />
         </template>
       </AppBtnSidebar>
