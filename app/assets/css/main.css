@@ -8,16 +8,23 @@
 :root {
     --ui-bg: var(--ui-color-neutral-50);
     --ui-container: var(--container-4xl);
-    --ui-transparent: rgba(0, 0, 0, .1);
     --ui-primary: var(--ui-color-primary-700);
 }
 
 .dark {
     --ui-bg: var(--ui-color-neutral-950);
-    --ui-transparent: rgba(0, 0, 0, .25);
     --ui-primary: var(--ui-color-primary-500);
 }
 
 body {
     @apply antialiased text-default bg-default scheme-light dark:scheme-dark;
+}
+
+@utility page-card {
+    @apply bg-black/95;
+}
+
+@utility bg-logo {
+    @apply bg-[url(https://avatars.githubusercontent.com/u/500234?s=400&u=623c6fa100138e5e8e681a959b0d7c8decbba90e&v=4)];
+    @apply bg-no-repeat bg-center
 }

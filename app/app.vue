@@ -56,7 +56,7 @@ const sidebar = {
       </AppBtnSidebar>
     </UContainer>
 
-    <UContainer as="main" class="flex flex-col w-full h-full">
+    <UContainer as="main" class="flex flex-col w-full h-full bg-logo">
       <NuxtPage />
     </UContainer>
 

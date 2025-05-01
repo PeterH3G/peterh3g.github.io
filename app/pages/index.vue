@@ -7,7 +7,7 @@ definePageMeta({
 </script>
 
 <template>
-    <PageCard>
-        Home Page
+    <PageCard noHeader>
+        <h1>Hello Universe!</h1>
     </PageCard>
 </template>

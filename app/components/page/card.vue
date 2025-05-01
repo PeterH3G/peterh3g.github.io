@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { appName } from '~/constants/app'
 
+// Define Props
+const props = defineProps<{
+    noHeader?: boolean,
+}>()
+
 // Define [html head] title per route
 const route = useRoute()
 const card = {
@@ -17,12 +22,12 @@ useHead({
 
 <template>
     <UCard as="article" :ui="{
-        root: 'page-card grid grid-cols-1 grid-rows-[auto_1fr_auto] min-h-full',
+        root: 'page-card min-h-full',
         header: 'page-header flex items-center justify-between',
-        body: 'page-body',
+        body: 'page-body h-full flex flex-col items-center justify-center',
         footer: 'page-footer'
     }">
-        <template #header>
+        <template #header v-if="!props.noHeader">
             <div class="page-label inline-flex items-center">
                 <Icon :name="card.icon" />
                 <span v-text="card.title" />
@@ -34,8 +39,8 @@ useHead({
 
         <slot />
 
-        <template #footer>
-            page.card.footer
+        <template #footer v-if="$slots.footer">
+            <slot name="footer" />
         </template>
     </UCard>
 </template>
