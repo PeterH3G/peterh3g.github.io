@@ -24,7 +24,7 @@ useHead({
     <UCard as="article" :ui="{
         root: 'page-card min-h-full',
         header: 'page-header flex items-center justify-between',
-        body: 'page-body h-full flex flex-col items-center justify-center',
+        body: 'page-body h-full flex flex-col items-center',
         footer: 'page-footer'
     }">
         <template #header v-if="!props.noHeader">
