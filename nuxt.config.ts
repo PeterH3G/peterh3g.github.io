@@ -24,6 +24,7 @@ export default defineNuxtConfig({
       class: 'app-layout'
     }
   },
+
   compatibilityDate: '2024-11-01',
 
   css: ['@/assets/css/main.css'],
@@ -34,6 +35,12 @@ export default defineNuxtConfig({
     // https://nuxt.com/docs/getting-started/upgrade
     // This section is subject to change until the final release of Nuxt 4.0
     compatibilityVersion: 4,
+  },
+
+  hooks: {
+    "prerender:routes"({ routes }) {
+      routes.clear() // Don't generate routes, except for the default ones
+    }
   },
 
   ssr: false,
