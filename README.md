@@ -1,5 +1,5 @@
 # My Pages
-A NuxtUI project with Nuxt 4 for Github Pages.
+PeterH3G's Github Pages.
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
