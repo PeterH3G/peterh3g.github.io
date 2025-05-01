@@ -1,9 +1,4 @@
 export default defineAppConfig({
-    app: {
-        name: 'Nuxt WSL',
-        description: 'App Description',
-    },
-
     ui: {
         header: {
             buttons: {

@@ -4,14 +4,10 @@ definePageMeta({
     description: 'This is the home page',
     icon: 'mdi:home'
 })
-
-defineProps<{
-    app: object
-}>()
 </script>
 
 <template>
-    <PageCard :app="app">
+    <PageCard>
         Home Page
     </PageCard>
 </template>

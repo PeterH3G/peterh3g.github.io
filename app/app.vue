@@ -39,7 +39,7 @@ const sidebar = {
 
       <AppButtons isHeader>
         <template #buttons>
-          <AppBtnModal :isIcon="header.buttons.isIcon" class="app-modal" label="Information" :modal="app?.modal" />
+          <AppBtnModal :isIcon="header.buttons.isIcon" class="app-modal" :modal="app?.modal" />
           <AppBtnTheme :isIcon="header.buttons.isIcon" class="app-theme" label="Theme" />
         </template>
       </AppButtons>
@@ -57,7 +57,7 @@ const sidebar = {
     </UContainer>
 
     <UContainer as="main" class="flex flex-col w-full h-full">
-      <NuxtPage :app="app" />
+      <NuxtPage />
     </UContainer>
 
     <UContainer as="footer" class="app-footer">

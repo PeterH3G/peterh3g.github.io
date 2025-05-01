@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const appName = useAppConfig().app.name || ''
+import { appName } from '~/constants/app'
 
 const props = defineProps<{
     class?: string,

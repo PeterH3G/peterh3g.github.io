@@ -5,10 +5,6 @@ definePageMeta({
     icon: 'mdi:code'
 })
 
-defineProps<{
-    app: object
-}>()
-
 // Server API query
 const { data: developer, status } = await useLazyFetch('/api/developer', {
     pick: ['itemsAccordion']
@@ -16,7 +12,7 @@ const { data: developer, status } = await useLazyFetch('/api/developer', {
 </script>
 
 <template>
-    <PageCard :app="app">
+    <PageCard>
         <PageAccordion :items="developer?.itemsAccordion" />
     </PageCard>
 </template>

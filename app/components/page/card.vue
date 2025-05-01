@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import { appName } from '~/constants/app'
 
-defineProps<{
-    app?: object
-}>()
-
 // Define [html head] title per route
 const route = useRoute()
 const card = {

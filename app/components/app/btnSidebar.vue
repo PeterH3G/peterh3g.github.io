@@ -15,9 +15,6 @@ const label = props.label
 const variant = <any>'outline'
 
 const open = ref(false)
-defineShortcuts({
-    o: () => open.value = !open.value
-})
 </script>
 
 <template>
