@@ -29,7 +29,7 @@ export default defineNuxtConfig({
 
   css: ['@/assets/css/main.css'],
 
-  devtools: { enabled: false },
+  devtools: { enabled: true },
 
   future: {
     // https://nuxt.com/docs/getting-started/upgrade

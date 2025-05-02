@@ -20,13 +20,36 @@ const sidebar = {
     isIcon: useAppConfig().ui.sidebar.buttons.isIcon,
   }
 }
-
 const modal = {
   icon: 'lucide:eye', // button & dialog
   label: "Information", // button
   title: "Application Information", // dialog
   description: "Specifications and features", // dialog
 }
+
+// Github API data
+const githubApi = 'https://api.github.com/users/peterh3g'
+interface GithubData {
+  avatar_url: string,
+  url: string,
+  html_url: string,
+  name: string,
+  blog: string,
+  hireable: boolean,
+  bio: string
+}
+const { data: github } = await useLazyFetch<GithubData>(githubApi, {
+  pick: ["avatar_url", "bio", "blog", "hireable", "html_url", "name", "url"]
+})
+
+const logo = computed(() => {
+  let avatar_url = github.value?.avatar_url || ''
+  let name = github.value?.name || ''
+  return {
+    avatar_url: avatar_url,
+    name: name,
+  } 
+})
 </script>
 
 <template>
@@ -34,8 +57,10 @@ const modal = {
     <NuxtLoadingIndicator />
     <NuxtRouteAnnouncer />
 
-    <UContainer as="header" class="app-header inline-flex items-center justify-between" :class="header.class">
-      <AppBtnLogo />
+    <UContainer as="header" class="app-header inline-flex items-center justify-between gap-4" :class="header.class">
+      <AppBtnLogo :logo="logo" />
+      
+      <sub class="app-description flex items-center w-full" v-text="github?.bio" />
 
       <AppNavigation isHeader />
 
@@ -57,12 +82,12 @@ const modal = {
     </UContainer>
 
     <UContainer as="main" class="flex flex-col w-full h-full bg-logo">
-      <NuxtPage />
+      <NuxtPage :github="github" />
     </UContainer>
 
     <UContainer as="footer" class="app-footer">
       <div class="flex items-center justify-center">
-        <AppBtnLogo />
+        <AppBtnLogo :logo="logo" />
         <p>&copy;2025 | All rights reserved.</p>
       </div>
     </UContainer>

@@ -5,6 +5,10 @@
     "editor.quickSuggestions": {
         "strings": "on"
     },
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "never"
+    },
     "files.associations": {
         "*.css": "tailwindcss"
     },

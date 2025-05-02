@@ -1,27 +1,16 @@
 <script lang="ts" setup>
-import { appName } from '~/constants/app'
-
 const props = defineProps<{
     class?: string,
-    label?: string,
+    logo?: any,
     isIcon?: boolean,
-    variant?: any
+    variant?: any,
+    size?: any,
 }>()
-
-const logo = {
-    class: props.class || '',
-    label: props.label || appName
-}
-
-const button = {
-    avatarSrc: 'https://github.com/nuxt.png',
-    to: '/',
-    variant: props.variant || 'ghost'
-}
 </script>
 
 <template>
-    <UButton class="app-logo" :class="`${logo.class} ${isIcon ? 'elastic justify-center items-center' : ''}`"
-        :avatar="{ src: button.avatarSrc }" :label="props.isIcon ? undefined : logo.label" :to="button.to"
-        :variant="button.variant" />
+    <UButton class="app-logo" :class="`${props.class} ${isIcon ? 'elastic justify-center items-center' : ''}`"
+        :avatar="{ src: props.logo?.avatar_url }" :label="props.isIcon ? undefined : props.logo?.name" to="/"
+        :variant="props.variant ? props.variant : 'outline'" :size="props.size">
+    </UButton>
 </template>

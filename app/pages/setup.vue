@@ -7,6 +7,11 @@ definePageMeta({
     icon: 'mdi:code'
 })
 
+// Import Github data
+const props = defineProps<{
+    github: any
+}>()
+
 // Component sections array
 const sections = [
     { title: appName, description: appDescription, content: 'application body' },

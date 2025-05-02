@@ -1,4 +1,8 @@
 <script lang="ts" setup>
+const props = defineProps<{
+    github: any
+}>()
+
 definePageMeta({
     title: 'Home',
     description: 'This is the home page',
@@ -7,7 +11,8 @@ definePageMeta({
 </script>
 
 <template>
-    <PageCard noHeader bodyClass="flex flex-col justify-center items-center">
+    <PageCard bodyClass="flex flex-col justify-center items-center">
         <h1>Hello Universe!</h1>
+        <pre>{{ props.github }}</pre>
     </PageCard>
 </template>

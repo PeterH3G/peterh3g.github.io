@@ -13,17 +13,8 @@ const appHead = {
     }
 }
 
-const developer = {
-    name: 'PeterH3G',
-    urlGithubAvatar: 'https://avatars.githubusercontent.com/u/500234?v=4',
-    urlGithubApi: 'https://api.github.com/users/peterh3g',
-    urlGithubPages: 'https://peterh3g.github.io/',
-    urlGithubProfile: 'https://github.com/PeterH3G'
-}
-
 export {
     appDescription,
     appHead,
-    appName,
-    developer
+    appName
 }
