@@ -23,7 +23,7 @@ useHead({
 
 <template>
     <UCard as="article" :ui="{
-        root: `page-card min-h-full`,
+        root: `page-card h-full max-h-full`,
         header: 'page-header flex items-center justify-between',
         body: `page-body h-full ${props.bodyClass || ''}`,
         footer: 'page-footer'
