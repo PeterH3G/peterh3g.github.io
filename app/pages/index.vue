@@ -7,7 +7,7 @@ definePageMeta({
 </script>
 
 <template>
-    <PageCard noHeader>
+    <PageCard noHeader bodyClass="flex flex-col justify-center items-center">
         <h1>Hello Universe!</h1>
     </PageCard>
 </template>

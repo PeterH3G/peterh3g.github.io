@@ -1,17 +1,17 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
-import { appName, appDescription } from './app/constants/app'
+import { appName, appDescription, appHead } from './app/constants/app'
 
 export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: {
-        class: 'w-full h-full',
+        class: appHead.htmlAttrs.class,
       },
       bodyAttrs: {
-        class: 'w-full h-full',
+        class: appHead.bodyAttrs.class,
       },
-      charset: 'utf-16',
+      charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
       meta: [
@@ -21,7 +21,7 @@ export default defineNuxtConfig({
     },
     pageTransition: { name: 'page', mode: 'out-in' },
     rootAttrs: {
-      class: 'app-layout'
+      class: appHead.rootAttrs.class
     }
   },
 

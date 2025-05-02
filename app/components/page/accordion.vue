@@ -6,7 +6,7 @@ const props = defineProps<{
 
 <template>
     <UAccordion :items="props.items" :ui="{
-        body: 'w-full flex flex-col gap-2'
+        body: 'w-full flex flex-col'
     }">
         <template #body="{ item }">
             <span v-text="item.content" />

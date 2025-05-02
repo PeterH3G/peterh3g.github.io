@@ -41,7 +41,6 @@ const modal = {
 
       <AppButtons isHeader>
         <template #buttons>
-          <AppBtnModal :isIcon="header.buttons.isIcon" class="app-modal" :modal="modal" />
           <AppBtnTheme :isIcon="header.buttons.isIcon" class="app-theme" label="Theme" />
         </template>
       </AppButtons>
@@ -52,7 +51,6 @@ const modal = {
           <AppNavigation />
         </template>
         <template #footer>
-          <AppBtnModal :isIcon="sidebar.buttons.isIcon" class="app-modal" :modal="modal" />
           <AppBtnTheme :isIcon="sidebar.buttons.isIcon" class="app-theme" label="Theme" />
         </template>
       </AppBtnSidebar>

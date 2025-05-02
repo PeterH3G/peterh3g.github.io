@@ -4,6 +4,7 @@ import { appName } from '~/constants/app'
 // Define Props
 const props = defineProps<{
     noHeader?: boolean,
+    bodyClass?: string
 }>()
 
 // Define [html head] title per route
@@ -22,9 +23,9 @@ useHead({
 
 <template>
     <UCard as="article" :ui="{
-        root: 'page-card min-h-full',
+        root: `page-card min-h-full`,
         header: 'page-header flex items-center justify-between',
-        body: 'page-body h-full flex flex-col items-center',
+        body: `page-body h-full ${props.bodyClass || ''}`,
         footer: 'page-footer'
     }">
         <template #header v-if="!props.noHeader">
