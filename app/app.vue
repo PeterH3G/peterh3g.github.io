@@ -56,6 +56,9 @@ useSeoMeta({
   description: application.value.description || defaults.description,
   ogDescription: application.value.description || defaults.description,
 })
+
+// CSS variables
+const logoUrl = computed(() => `url(${apiGithubUser.data.value?.avatar_url || defaults.logoUrl})`)
 </script>
 
 <template>
@@ -91,7 +94,7 @@ useSeoMeta({
       </AppBtnSidebar>
     </UContainer>
 
-    <UContainer as="main" class="flex flex-col w-full h-full bg-logo">
+    <UContainer as="main" class="flex flex-col w-full h-full" :class="`bg-[${logoUrl}]`">
       <NuxtPage :github="apiGithubUser" />
     </UContainer>
 
@@ -108,6 +111,11 @@ useSeoMeta({
 /** Global styles */
 #__nuxt.app-layout {
   @apply h-full grid grid-cols-1 grid-rows-[auto_1fr_auto] items-center;
+}
+
+main {
+  /*bg-img is set inside the template */
+  @apply bg-center bg-no-repeat bg-contain;
 }
 
 /** Transitions */
