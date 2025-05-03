@@ -11,8 +11,8 @@ definePageMeta({
 </script>
 
 <template>
-    <PageCard bodyClass="flex flex-col justify-center items-center">
-        <h1>Hello Universe!</h1>
-        <pre>{{ props.github }}</pre>
+    <PageCard bodyClass="flex flex-col justify-start items-start max-w-full">
+        <UContainer as="h1">Hello Universe!</UContainer>
+        <pre class="text-xs">{{ props.github }}</pre>
     </PageCard>
 </template>

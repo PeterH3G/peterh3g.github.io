@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 definePageMeta({
-    title: 'Developer',
-    description: 'Development Information',
-    icon: 'mdi:code'
+    title: 'Profile',
+    description: 'Developer Information',
+    icon: 'mdi:account'
 })
 
 const props = defineProps<{
@@ -12,6 +12,6 @@ const props = defineProps<{
 
 <template>
     <PageCard>
-        <pre>{{ props.github }}</pre>
+        <UContainer as="pre">{{ props.github }}</UContainer>
     </PageCard>
 </template>

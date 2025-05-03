@@ -1,6 +1,11 @@
-const appName = 'PeterH3G'
-const appDescription = 'My Github Pages'
+// Defaults / fallback values
+const defaults = {
+    name: 'default-name',
+    description: 'default-description',
+    logoUrl: '../../favicon.ico',
+}
 
+// Used for ./nuxt.config.ts
 const appHead = {
     htmlAttrs: {
         class: 'w-full h-full',
@@ -13,8 +18,8 @@ const appHead = {
     }
 }
 
+// Exports
 export {
-    appDescription,
+    defaults,
     appHead,
-    appName
 }

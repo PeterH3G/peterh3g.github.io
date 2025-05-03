@@ -1,54 +1,60 @@
 <script lang="ts" setup>
-import { appDescription, appName } from '~/constants/app'
+// import 'defaults' for fallback values
+import { defaults } from '~/constants/app'
+
+// Github API data
+interface GithubUser {
+  avatar_url?: string;
+  bio?: string;
+  blog?: string;
+  hireable?: boolean;
+  html_url: string;
+  name: string;
+  url: string;
+}
+const apiGithubUser = await useFetch<GithubUser>('https://api.github.com/users/peterh3g', {
+  pick: ['avatar_url', 'bio', 'blog', 'hireable', 'html_url', 'name', 'url']
+})
+
+// Application Component configirations
+const application = computed(() => {
+  return {
+    name: apiGithubUser.data.value?.name || defaults.name,
+    avatarUrl: apiGithubUser.data.value?.avatar_url || defaults.logoUrl,
+    description: apiGithubUser.data.value?.bio || defaults.description,
+
+    header: {
+      class: useAppConfig().ui.header.class,
+      buttons: {
+        isIcon: useAppConfig().ui.header.buttons.isIcon,
+      }
+    },
+    sidebar: {
+      buttons: {
+        isIcon: useAppConfig().ui.sidebar.buttons.isIcon,
+      }
+    },
+    footer: {
+      buttons: {
+        isIcon: useAppConfig().ui.sidebar.buttons.isIcon,
+      }
+    },
+
+    modal: {
+      icon: 'lucide:eye', // button & dialog
+      label: "Information", // button
+      title: "Application Information", // dialog
+      description: "Specifications and features", // dialog
+    },
+  }
+})
 
 // SEO configuration
 useSeoMeta({
-  title: appName,
-  ogTitle: appDescription,
-  description: appDescription,
-  ogDescription: appDescription,
-})
-
-const header = {
-  class: useAppConfig().ui.header.class,
-  buttons: {
-    isIcon: useAppConfig().ui.header.buttons.isIcon,
-  }
-}
-const sidebar = {
-  buttons: {
-    isIcon: useAppConfig().ui.sidebar.buttons.isIcon,
-  }
-}
-const modal = {
-  icon: 'lucide:eye', // button & dialog
-  label: "Information", // button
-  title: "Application Information", // dialog
-  description: "Specifications and features", // dialog
-}
-
-// Github API data
-const githubApi = 'https://api.github.com/users/peterh3g'
-interface GithubData {
-  avatar_url: string,
-  url: string,
-  html_url: string,
-  name: string,
-  blog: string,
-  hireable: boolean,
-  bio: string
-}
-const { data: github } = await useLazyFetch<GithubData>(githubApi, {
-  pick: ["avatar_url", "bio", "blog", "hireable", "html_url", "name", "url"]
-})
-
-const logo = computed(() => {
-  let avatar_url = github.value?.avatar_url || ''
-  let name = github.value?.name || ''
-  return {
-    avatar_url: avatar_url,
-    name: name,
-  } 
+  title: application.value.name || defaults.name,
+  ogTitle: application.value.name || defaults.description,
+  description: application.value.description || defaults.description,
+  ogDescription: application.value.description || defaults.description,
 })
 </script>
 
@@ -57,37 +63,39 @@ const logo = computed(() => {
     <NuxtLoadingIndicator />
     <NuxtRouteAnnouncer />
 
-    <UContainer as="header" class="app-header inline-flex items-center justify-between gap-4" :class="header.class">
-      <AppBtnLogo :logo="logo" />
-      
-      <sub class="app-description flex items-center w-full" v-text="github?.bio" />
+    <UContainer as="header" class="app-header inline-flex items-center justify-between gap-4"
+      :class="application.header.class">
+      <AppBtnLogo :logo="{ type: 'default', avatarUrl: application.avatarUrl, name: application.name }" />
+
+      <sub class="app-description items-center w-full hidden md:flex" v-text="application.description" />
 
       <AppNavigation isHeader />
 
       <AppButtons isHeader>
         <template #buttons>
-          <AppBtnTheme :isIcon="header.buttons.isIcon" class="app-theme" label="Theme" />
+          <AppBtnTheme :isIcon="application.header.buttons.isIcon" class="app-theme" label="Theme" />
         </template>
       </AppButtons>
 
-      <AppBtnSidebar class="app-sidebar flex md:hidden" :description="appDescription" :title="appName" label="Menu"
-        :isIcon="header.buttons.isIcon">
+      <AppBtnSidebar class="app-sidebar flex md:hidden" :sidebar="{
+        type: 'default', title: application.name, description: application.description, label: 'Menu'
+      }" :isIcon="application.header.buttons.isIcon">
         <template #body>
           <AppNavigation />
         </template>
         <template #footer>
-          <AppBtnTheme :isIcon="sidebar.buttons.isIcon" class="app-theme" label="Theme" />
+          <AppBtnTheme :isIcon="application.sidebar.buttons.isIcon" class="app-theme" label="Theme" />
         </template>
       </AppBtnSidebar>
     </UContainer>
 
     <UContainer as="main" class="flex flex-col w-full h-full bg-logo">
-      <NuxtPage :github="github" />
+      <NuxtPage :github="apiGithubUser" />
     </UContainer>
 
     <UContainer as="footer" class="app-footer">
       <div class="flex items-center justify-center">
-        <AppBtnLogo :logo="logo" />
+        <AppBtnLogo :logo="{ type: 'default', avatarUrl: application.avatarUrl, name: application.name }" />
         <p>&copy;2025 | All rights reserved.</p>
       </div>
     </UContainer>

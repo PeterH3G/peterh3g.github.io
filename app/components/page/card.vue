@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { appName } from '~/constants/app'
+import { defaults  } from '~/constants/app'
 
 // Define Props
 const props = defineProps<{
@@ -16,7 +16,7 @@ const card = {
 }
 useHead({
     titleTemplate: (titleChunk) => {
-        return titleChunk ? `${titleChunk} | ${route.meta.title}` : appName;
+        return titleChunk ? `${titleChunk} | ${route.meta.title}` : defaults.name;
     }
 })
 </script>
@@ -25,7 +25,7 @@ useHead({
     <UCard as="article" :ui="{
         root: `page-card h-full max-h-full`,
         header: 'page-header flex items-center justify-between',
-        body: `page-body h-full ${props.bodyClass || ''}`,
+        body: `page-body h-full ${props.bodyClass}`,
         footer: 'page-footer'
     }">
         <template #header v-if="!props.noHeader">

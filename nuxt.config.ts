@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
-import { appName, appDescription, appHead } from './app/constants/app'
+import { defaults, appHead } from './app/constants/app'
 
 export default defineNuxtConfig({
   app: {
@@ -15,8 +15,8 @@ export default defineNuxtConfig({
       viewport: 'width=device-width, initial-scale=1',
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
       meta: [
-        { name: 'title', content: appName },
-        { name: 'description', content: appDescription },
+        { name: 'title', content: defaults.name },
+        { name: 'description', content: defaults.description },
       ],
     },
     pageTransition: { name: 'page', mode: 'out-in' },

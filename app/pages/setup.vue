@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { appDescription, appName } from '~/constants/app'
+import { defaults } from '~/constants/app'
 
 definePageMeta({
     title: 'Setup',
@@ -14,7 +14,7 @@ const props = defineProps<{
 
 // Component sections array
 const sections = [
-    { title: appName, description: appDescription, content: 'application body' },
+    { title: defaults.name, description: defaults.description, content: 'application body' },
     { title: 'Nuxt 4', description: 'Nuxt 4 Setup information', content: 'nuxt 4 body' },
 ]
 
