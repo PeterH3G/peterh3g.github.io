@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { NavigationMenuItem } from '@nuxt/ui'
+
 const props = defineProps<{
     class?: string,
     isHeader?: boolean,
@@ -11,20 +13,22 @@ const navigation = {
     ui: props.ui || {},
 }
 
-// Transform each route into a NavigationMenuItem
-const items = useRouter().options.routes.map(route => {
+// Map each route as type <NavigationMenuItem>
+const items: NavigationMenuItem[] = useRouter().options.routes.map(route => {
+    const icon = typeof route.meta?.icon === 'string' ? route.meta.icon : 'mdi:cloud-question'
+    const label = route.meta?.title?.toString() || 'Default Label' // Ensure label is a string
     return {
-        icon: route.meta?.icon || 'mdi:cloud-question', // Provide default values if necessary
-        label: route.meta?.title || 'Untitled', // Example of a fallback value
+        icon: icon,
+        label: label,
         to: route.path,
     }
 })
 </script>
 
 <template>
-    <UNavigationMenu v-if="props.isHeader" :class="'hidden md:flex data-[orientation=horizontal]:w-full'" :items="items"
+    <UNavigationMenu v-if="props.isHeader" :class="`hidden md:flex data-[orientation=horizontal]:w-full ${navigation.class}`" :items="items"
         :orientation="props.isHeader ? 'horizontal' : 'vertical'" :ui="navigation.ui" />
 
-    <UNavigationMenu v-else :class="'data-[orientation=vertical]:w-full'" :items="items" orientation="vertical"
+    <UNavigationMenu v-else :class="`data-[orientation=vertical]:w-full ${navigation.class}`" :items="items" orientation="vertical"
         :ui="navigation.ui" />
 </template>

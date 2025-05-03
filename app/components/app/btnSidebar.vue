@@ -13,7 +13,7 @@ const sidebar = computed(() => {
         title: props.sidebar.title || defaults.name,
         icon: props.sidebar.icon || 'mdi:menu',
         button: {
-            class: '',
+            class: 'md:hidden',
             icon: '',
             label: props.sidebar.label || defaults.name,
             variant: <any>'outline'

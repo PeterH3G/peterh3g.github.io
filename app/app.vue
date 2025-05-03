@@ -69,7 +69,7 @@ useSeoMeta({
 
       <sub class="app-description items-center w-full hidden md:flex" v-text="application.description" />
 
-      <AppNavigation isHeader />
+      <AppNavigation isHeader class="justify-end" />
 
       <AppButtons isHeader>
         <template #buttons>
@@ -77,12 +77,14 @@ useSeoMeta({
         </template>
       </AppButtons>
 
-      <AppBtnSidebar class="app-sidebar flex md:hidden" :sidebar="{
+      <AppBtnSidebar class="app-sidebar" :sidebar="{
         type: 'default', title: application.name, description: application.description, label: 'Menu'
       }" :isIcon="application.header.buttons.isIcon">
+
         <template #body>
           <AppNavigation />
         </template>
+
         <template #footer>
           <AppBtnTheme :isIcon="application.sidebar.buttons.isIcon" class="app-theme" label="Theme" />
         </template>
