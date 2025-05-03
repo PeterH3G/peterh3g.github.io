@@ -58,7 +58,7 @@ useSeoMeta({
 })
 
 // CSS variables
-const logoUrl = computed(() => `url(${apiGithubUser.data.value?.avatar_url || defaults.logoUrl})`)
+const logoUrl = computed(() => `url(` + apiGithubUser.data.value?.avatar_url || defaults.logoUrl + `)`)
 </script>
 
 <template>
@@ -94,7 +94,7 @@ const logoUrl = computed(() => `url(${apiGithubUser.data.value?.avatar_url || de
       </AppBtnSidebar>
     </UContainer>
 
-    <UContainer as="main" class="flex flex-col w-full h-full" :class="`bg-[${logoUrl}]`">
+    <UContainer as="main" class="flex flex-col w-full h-full bg-logo">
       <NuxtPage :github="apiGithubUser" />
     </UContainer>
 
@@ -113,8 +113,8 @@ const logoUrl = computed(() => `url(${apiGithubUser.data.value?.avatar_url || de
   @apply h-full grid grid-cols-1 grid-rows-[auto_1fr_auto] items-center;
 }
 
-main {
-  /*bg-img is set inside the template */
+main.bg-logo {
+  background-image: v-bind(logoUrl);
   @apply bg-center bg-no-repeat bg-contain;
 }
 
