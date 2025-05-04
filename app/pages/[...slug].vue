@@ -5,8 +5,8 @@ const { data: page } = await useAsyncData(route.path, () => {
 })
 
 useSeoMeta({
-  title: page.value?.title,
-  description: page.value?.description
+  title: `${page.value?.title} | ${page.value?.description}`,
+  description: () => `${page.value?.description}`
 })
 </script>
 
@@ -17,7 +17,7 @@ useSeoMeta({
   }">
     <template #header>
       <span class="title">
-        <UIcon :name="`${page?.icon}`" />
+        <UIcon :name="`mdi:home`" />
         {{ page?.title }}
       </span>
       <span class="description">
