@@ -6,8 +6,8 @@ const { data: page } = await useAsyncData(route.path, () => {
 </script>
 
 <template>
-  <PageCard :page="page">
+  <UCard>
     <!-- Render the blog post as Prose & Vue components -->
     <ContentRenderer v-if="page" :value="page" />
-  </PageCard>
+  </UCard>
 </template>
