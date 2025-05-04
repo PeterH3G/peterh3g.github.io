@@ -2,9 +2,7 @@
 import { defaults } from '~/constants/app'
 
 const props = defineProps<{
-    class?: string,
     sidebar?: any,
-    isIcon?: boolean,
 }>()
 
 const sidebar = computed(() => {
@@ -12,6 +10,7 @@ const sidebar = computed(() => {
         description: props.sidebar.description || defaults.description,
         title: props.sidebar.title || defaults.name,
         icon: props.sidebar.icon || 'mdi:menu',
+        avatarUrl: props.sidebar.avatarUrl || '',
         button: {
             class: 'md:hidden',
             icon: '',
@@ -40,15 +39,14 @@ const open = ref(false)
         footer: 'sidebar-footer'
     }" v-model:open="open">
 
-        <UButton class="sidebar-button" :class="sidebar.button.class" :icon="sidebar.icon"
-            :label="props.isIcon ? '' : sidebar.button.label" :variant="sidebar.button.variant" />
-
+        <UButton class="sidebar-button" :class="sidebar.button.class" :icon="sidebar.icon" :label="sidebar.button.label"
+            :variant="sidebar.button.variant" />
         <template #body>
-            <slot name="body" />
+            <AppNavigation />
         </template>
 
         <template #footer>
-            <slot name="footer" />
+            <ButtonAppTheme class="app-theme" label="Theme" />
         </template>
     </USlideover>
 </template>

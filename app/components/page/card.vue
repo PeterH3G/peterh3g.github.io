@@ -4,19 +4,14 @@ import { defaults  } from '~/constants/app'
 // Define Props
 const props = defineProps<{
     noHeader?: boolean,
-    bodyClass?: string,
-    card?: {
-        icon?: string,
-        title?: string,
-        description?: string
-    },
+    page?: any
 }>()
 
 // Page Card configuration
 const card = {
-    icon: props.card?.icon || 'mdi:cloud-question',
-    title: props.card?.title  || 'pageCard-title',
-    description: props.card?.description || 'pageCard-description'
+    icon: props.page?.icon || 'mdi:cloud-question',
+    title: props.page?.title  || defaults.name,
+    description: props.page?.description || defaults.description
 }
 </script>
 
@@ -24,7 +19,7 @@ const card = {
     <UCard as="article" :ui="{
         root: `page-card h-full max-h-full`,
         header: 'page-header flex items-center justify-between',
-        body: `page-body max-h-full ${props.bodyClass}`,
+        body: 'page-body max-h-full',
         footer: 'page-footer'
     }">
         <template #header v-if="!props.noHeader">

@@ -4,13 +4,11 @@ import type { NuxtError } from '#app'
 const props = defineProps({
   error: Object as () => NuxtError
 })
-
-const handleError = () => clearError({ redirect: '/' })
 </script>
 
 <template>
-  <PageCard>
-    <h2>{{ error?.statusCode }}</h2>
-    <button @click="handleError">Clear errors</button>
-  </PageCard>
+  <NuxtLayout name="error">
+    <h1>{{ props.error || '500'  }}</h1>
+    <NuxtLink to="/">Go back home</NuxtLink>
+  </NuxtLayout>
 </template>
