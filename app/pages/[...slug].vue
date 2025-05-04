@@ -1,12 +1,6 @@
 <script setup lang="ts">
 import { defaults  } from '~/constants/app'
 
-useHead({
-    titleTemplate: (titleChunk) => {
-        return titleChunk ? `${titleChunk} | ${useRoute().params.slug}` : defaults.name;
-    }
-})
-
 const route = useRoute()
 const { data: page } = await useAsyncData(route.path, () => {
   return queryCollection('docs').path(route.path).first()

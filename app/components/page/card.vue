@@ -12,13 +12,20 @@ const props = defineProps<{
     },
 }>()
 
-// Define [html head] title per route
-const route = useRoute()
+// Page Card configuration
 const card = {
     icon: props.card?.icon || 'mdi:cloud-question',
     title: props.card?.title  || 'pageCard-title',
     description: props.card?.description || 'pageCard-description'
 }
+
+// Define [html head] title per route
+const route = useRoute()
+useHead({
+    titleTemplate: (titleChunk) => {
+        return titleChunk ? `${titleChunk} | ${props.card?.title}` : defaults.name;
+    }
+})
 </script>
 
 <template>
