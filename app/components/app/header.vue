@@ -14,7 +14,7 @@ const header = computed(() => {
 
     <sub class="app-description items-center w-full hidden md:flex" v-text="header.description" />
 
-    <AppNavigation class="justify-end" />
+    <AppNavigation isHeader />
 
     <UButtonGroup class="app-buttons" :class="'hidden md:flex'">
       <ButtonAppTheme class="app-theme" label="Theme" />
