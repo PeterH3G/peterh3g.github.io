@@ -11,7 +11,21 @@ useSeoMeta({
 </script>
 
 <template>
-  <UCard>
+  <UCard :ui="{
+    root: 'grid grid-cols-1 grid-rows-[auto_1fr_auto] h-full',
+    header: 'inline-flex justify-between items-center w-full'
+  }">
+    <template #header>
+      <span class="title">
+        <UIcon :name="`${page?.icon}`" />
+        {{ page?.title }}
+      </span>
+      <span class="description">
+        {{ page?.description }}
+        <UIcon name="mdi:language-markdown" />
+      </span>
+    </template>
+
     <ContentRenderer v-if="page" :value="page" />
     <div v-else>Content not found</div>
   </UCard>
