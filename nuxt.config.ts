@@ -37,8 +37,6 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
 
-  ssr: false,
-
   modules: [
     '@nuxt/content',
     '@nuxt/eslint',
@@ -53,7 +51,7 @@ export default defineNuxtConfig({
   // https://icon-sets.iconify.design/mdi/?keyword=mdi
   icon: {
     serverBundle: {
-      collections: ['lucide', 'mdi', 'vscode-icons']
+      collections: ['lucide', 'mdi']
     }
   },
 })
