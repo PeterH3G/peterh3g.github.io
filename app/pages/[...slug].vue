@@ -12,6 +12,13 @@ const card = {
     icon: page.value?.icon || 'mdi:cloud-question',
     image: page.value?.image
 }
+
+// Define [html head] title per route
+useHead({
+    titleTemplate: (titleChunk) => {
+        return titleChunk ? `${titleChunk} | ${card.title}` : defaults.name;
+    }
+})
 </script>
 
 <template>

@@ -18,14 +18,6 @@ const card = {
     title: props.card?.title  || 'pageCard-title',
     description: props.card?.description || 'pageCard-description'
 }
-
-// Define [html head] title per route
-const route = useRoute()
-useHead({
-    titleTemplate: (titleChunk) => {
-        return titleChunk ? `${titleChunk} | ${props.card?.title}` : defaults.name;
-    }
-})
 </script>
 
 <template>
