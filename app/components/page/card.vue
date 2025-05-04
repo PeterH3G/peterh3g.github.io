@@ -4,21 +4,21 @@ import { defaults  } from '~/constants/app'
 // Define Props
 const props = defineProps<{
     noHeader?: boolean,
-    bodyClass?: string
+    bodyClass?: string,
+    card?: {
+        icon?: string,
+        title?: string,
+        description?: string
+    },
 }>()
 
 // Define [html head] title per route
 const route = useRoute()
 const card = {
-    icon: route.meta.icon || 'mdi:cloud-question',
-    title: route.meta.title || 'pageCard-title',
-    description: route.meta.description || 'pageCard-description'
+    icon: props.card?.icon || 'mdi:cloud-question',
+    title: props.card?.title  || 'pageCard-title',
+    description: props.card?.description || 'pageCard-description'
 }
-useHead({
-    titleTemplate: (titleChunk) => {
-        return titleChunk ? `${titleChunk} | ${route.meta.title}` : defaults.name;
-    }
-})
 </script>
 
 <template>

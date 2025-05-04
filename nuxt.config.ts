@@ -46,6 +46,7 @@ export default defineNuxtConfig({
   ssr: false,
 
   modules: [
+    '@nuxt/content',
     '@nuxt/eslint',
     '@nuxt/fonts',
     '@nuxt/icon',
