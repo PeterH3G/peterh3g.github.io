@@ -3,27 +3,18 @@ import { defineContentConfig, defineCollection, z } from '@nuxt/content'
 export default defineContentConfig({
   collections: {
     content: defineCollection({
+      // Load every file inside the `content` directory
+      source: '**',
+      
+      // Specify the type of content in this collection
       type: 'page',
-      source: {
-        include: "**",
-        exclude: ["docs/**"],
-        prefix: '/'
-      },
-      schema: z.object({
-        icon: z.string()
-      })
-    }),
 
-    docs: defineCollection({
-      type: 'page',
-      source: {
-        include: "docs/*.md",
-        prefix: '/'
-      },
+      // Define custom schema for docs collection
       schema: z.object({
+        tags: z.array(z.string()),
         icon: z.string(),
-        published: z.boolean(),
         image: z.string(),
+        date: z.date()
       })
     })
   }
