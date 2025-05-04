@@ -37,12 +37,6 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
 
-  hooks: {
-    "prerender:routes"({ routes }) {
-      routes.clear() // Don't generate routes, except for the default ones
-    }
-  },
-
   ssr: false,
 
   modules: [
