@@ -50,8 +50,15 @@ export default defineNuxtConfig({
 
   // https://icon-sets.iconify.design/mdi/?keyword=mdi
   icon: {
+    mode: 'css',
+    cssLayer: 'base',
+    aliases: {
+      'themeLight': 'mdi:weather-sunny',
+      'themeDark': 'mdi:weather-night',
+      'themeSwitch': 'mdi:theme-light-dark'
+    },
     serverBundle: {
       collections: ['mdi']
     }
-  },
+  }
 })

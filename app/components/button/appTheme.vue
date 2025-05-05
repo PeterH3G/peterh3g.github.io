@@ -22,8 +22,10 @@ const variant = props.variant || 'ghost'
 
 <template>
     <ClientOnly v-if="!colorMode?.forced">
-        <UButton icon="mdi:sun-moon-stars" color="neutral" variant="ghost"
-            @click="isDark = !isDark" :label="label" />
+        <UButton color="neutral" variant="ghost" @click="isDark = !isDark">
+            <Icon name="themeSwitch" />
+            <span v-text="label" />
+        </UButton>
 
         <template #fallback>
             <div class="size-8" />
