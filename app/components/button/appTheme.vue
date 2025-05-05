@@ -23,8 +23,11 @@ const iconDark = 'mdi:weather-night' as string
 </script>
 
 <template>
-    <UButton v-if="!colorMode?.forced" class="app-theme" :icon="isDark ? iconLight : iconDark" :label="label"
-        :variant="variant" @click="isDark = !isDark" :ui="{
-            base: props.class,
-        }" />
+    <UButton v-if="!colorMode?.forced" class="app-theme" :variant="variant" @click="isDark = !isDark" :ui="{
+        base: props.class,
+    }">
+        <UIcon v-if="isDark" :name="iconLight" />
+        <UIcon v-else :name="iconDark" />
+        <span v-text="label" />
+    </UButton>
 </template>
