@@ -29,19 +29,12 @@ export default defineNuxtConfig({
 
   css: ['@/assets/css/main.css'],
 
-  devtools: { enabled: true },
+  devtools: { enabled: false },
 
   future: {
     // https://nuxt.com/docs/getting-started/upgrade
     // This section is subject to change until the final release of Nuxt 4.0
     compatibilityVersion: 4,
-  },
-
-  // Deploying a Static Client-Rendered App ssr: false,
-  hooks: {
-    'prerender:routes'({ routes }) {
-      routes.clear() // Do not generate any routes (except the defaults)
-    }
   },
 
   modules: [
