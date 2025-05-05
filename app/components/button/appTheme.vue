@@ -16,14 +16,28 @@ const isDark = computed({
     }
 })
 
-const label = props.label || 'app-theme'
-const variant = props.variant || 'ghost'
+const button = computed(() => {
+    const label = props.label || 'app-theme'
+    const variant = props.variant || 'ghost'
+
+    const iconThemeSwitch = 'themeSwitch' as string
+    const iconThemeLight = 'themeLight' as string
+    const iconThemeDark = 'themeDark' as string
+
+    return {
+        color: isDark ? 'neutral' : 'primary',
+        label,
+        variant,
+        iconThemeLight,
+        iconThemeDark
+    }
+})
 </script>
 
 <template>
     <ClientOnly v-if="!colorMode?.forced">
-        <UButton color="neutral" variant="ghost" @click="isDark = !isDark">
-            <Icon name="themeSwitch" />
+        <UButton :color="button.color" :variant="button.variant" @click="isDark = !isDark">
+            <Icon :name="!isDark ? `${button.iconThemeDark}` : `${button.iconThemeLight}`" />
             <span v-text="label" />
         </UButton>
 
