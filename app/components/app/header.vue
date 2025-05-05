@@ -10,9 +10,8 @@ const header = computed(() => {
 
 <template>
   <UContainer as="header" class="app-header inline-flex items-center justify-between gap-4">
-    <ButtonAppLogo :logo="{ type: 'default', avatarUrl: header.avatarUrl, name: header.name }" />
-
-    <sub class="app-description items-center w-full hidden md:flex" v-text="header.description" />
+    <ButtonAppLogo
+      :logo="{ type: 'default', avatarUrl: header.avatarUrl, name: header.name }" />
 
     <AppNavigation isHeader />
 
@@ -21,7 +20,7 @@ const header = computed(() => {
     </UButtonGroup>
 
     <ButtonAppSidebar class="app-sidebar" :sidebar="{
-      type: 'default', title: header.name, description: header.description, label: 'Menu'
+      type: 'default', title: header.name, label: 'Menu'
     }" />
   </UContainer>
 </template>
