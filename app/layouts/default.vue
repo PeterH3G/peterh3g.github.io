@@ -13,7 +13,7 @@ const appFooter = computed(() => {
 })
 
 // CSS variables
-const mainBackgroundUrl = computed(() => `url(${ props.application?.avatar_url })`)
+const mainBackgroundUrl = computed(() => `url(${ props.application?.avatarUrl })`)
 </script>
 
 <template>
@@ -34,6 +34,7 @@ const mainBackgroundUrl = computed(() => `url(${ props.application?.avatar_url }
 
 main.bg-logo {
   background-image: v-bind(mainBackgroundUrl);
-  @apply bg-center bg-no-repeat bg-contain;
+  @apply bg-center bg-no-repeat;
+  background-size: 50dvw;
 }
 </style>

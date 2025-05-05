@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const props = defineProps<{
-    isHeader: boolean
+    isHeader?: boolean
 }>()
 
 const { data: items } = await useAsyncData('navigation', async () => {

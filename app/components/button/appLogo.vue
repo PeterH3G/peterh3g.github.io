@@ -7,7 +7,7 @@ const buttonAppLogo = computed(() => {
     return {
         avatarURl: props.logo?.avatarUrl || '',
         name: props.logo?.name || '',
-        variant: props.logo?.variant || '',
+        variant: props.logo?.variant || 'ghost',
         size: props.logo?.size || ''
     }
 })

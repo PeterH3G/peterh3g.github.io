@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
 import { defaults, appHead } from './app/constants/app'
-import tailwindcss from '@tailwindcss/vite'
 
 export default defineNuxtConfig({
   app: {
@@ -43,13 +43,6 @@ export default defineNuxtConfig({
     'prerender:routes'({ routes }) {
       routes.clear() // Do not generate any routes (except the defaults)
     }
-  },
-
-  // Vite config
-  vite: {
-    plugins: [
-      tailwindcss()
-    ]
   },
 
   modules: [

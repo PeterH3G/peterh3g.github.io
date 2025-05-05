@@ -11,7 +11,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <UCard :ui="{
+  <UCard class="page-card" :ui="{
     root: 'grid grid-cols-1 grid-rows-[auto_1fr_auto] h-full',
     header: 'inline-flex justify-between items-center w-full'
   }">

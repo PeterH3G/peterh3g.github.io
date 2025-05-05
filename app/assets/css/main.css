@@ -5,6 +5,13 @@
     --font-sans: 'Public Sans', sans-serif;
 }
 
+@theme {
+    --breakpoint-*: initial;
+    --breakpoint-sm: 480px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 976px;
+}
+
 :root {
     --ui-bg: var(--ui-color-neutral-300);
     --ui-container: var(--container-4xl);
@@ -25,11 +32,11 @@ body {
 }
 
 .page-card {
-    background: radial-gradient(circle at center, rgba(255,255,255,.9), var(--ui-bg) 90%);
+    background: radial-gradient(circle at center, rgba(255,255,255,.9), var(--ui-bg) 50%);
 }
 
 @variant dark {
     .page-card {
-        background: radial-gradient(circle at center, rgba(0,0,0,.99), var(--ui-bg) 90%);
+        background: radial-gradient(circle at center, rgba(0,0,0,.99), var(--ui-bg) 50%);
     }
 }
