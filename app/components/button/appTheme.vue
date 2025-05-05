@@ -18,7 +18,7 @@ const isDark = computed({
 
 const label = props.label || 'app-theme'
 const variant = props.variant || 'ghost'
-const iconLight = 'mdi:weather-sunny' as string
+const iconLight = 'mdi:white-balance-sunny' as string
 const iconDark = 'mdi:weather-night' as string
 </script>
 
