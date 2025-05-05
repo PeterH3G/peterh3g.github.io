@@ -28,8 +28,7 @@ const button = computed(() => {
         color: isDark ? 'neutral' : 'primary',
         label,
         variant,
-        iconThemeLight,
-        iconThemeDark
+        icon: iconThemeSwitch
     }
 })
 </script>
@@ -37,8 +36,8 @@ const button = computed(() => {
 <template>
     <ClientOnly v-if="!colorMode?.forced">
         <UButton :color="button.color" :variant="button.variant" @click="isDark = !isDark">
-            <Icon :name="!isDark ? `${button.iconThemeDark}` : `${button.iconThemeLight}`" />
-            <span v-text="label" />
+            <Icon :name="button.icon" />
+            <span v-text="button.label" />
         </UButton>
 
         <template #fallback>
