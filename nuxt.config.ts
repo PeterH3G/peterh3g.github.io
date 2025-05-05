@@ -51,7 +51,7 @@ export default defineNuxtConfig({
   // https://icon-sets.iconify.design/mdi/?keyword=mdi
   icon: {
     serverBundle: {
-      collections: ['mdi']
+      collections: ['local']
     }
   },
 })
