@@ -37,6 +37,14 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
 
+  // Deploying a Static Client-Rendered App
+  ssr: false,
+  hooks: {
+    'prerender:routes'({ routes }) {
+      routes.clear() // Do not generate any routes (except the defaults)
+    }
+  },
+
   modules: [
     '@nuxt/content',
     '@nuxt/eslint',

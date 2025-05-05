@@ -21,10 +21,8 @@ const variant = props.variant || 'ghost'
 </script>
 
 <template>
-    <ClientOnly v-if="!colorMode?.forced">
-        <UButton class="app-theme" :icon="isDark ? `mdi:weather-sunny` : `mdi:weather-night`" :label="label"
-            :variant="variant" @click="isDark = !isDark" :ui="{
-                base: props.class,
-            }" />
-    </ClientOnly>
+    <UButton class="app-theme" :icon="isDark ? `mdi:weather-sunny` : `mdi:weather-night`" :label="label"
+        :variant="variant" @click="isDark = !isDark" :ui="{
+            base: props.class,
+        }" />
 </template>
