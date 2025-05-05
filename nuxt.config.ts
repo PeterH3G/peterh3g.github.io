@@ -53,9 +53,7 @@ export default defineNuxtConfig({
     mode: 'css',
     cssLayer: 'base',
     aliases: {
-      'themeLight': 'mdi:weather-sunny',
-      'themeDark': 'mdi:weather-night',
-      'themeSwitch': 'mdi:theme-light-dark'
+      'themeSwitch': 'mdi:sun-moon-stars'
     },
     serverBundle: {
       collections: ['mdi']
