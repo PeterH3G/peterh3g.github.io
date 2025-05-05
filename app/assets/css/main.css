@@ -31,12 +31,12 @@ body {
     @apply gap-y-4 py-4;
 }
 
-.page-card {
+.bg-transparent {
     background: radial-gradient(circle at center, rgba(255,255,255,.9), var(--ui-bg) 50%);
 }
 
 @variant dark {
-    .page-card {
+    .bg-transparent {
         background: radial-gradient(circle at center, rgba(0,0,0,.99), var(--ui-bg) 50%);
     }
 }

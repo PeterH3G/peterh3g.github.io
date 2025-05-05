@@ -34,7 +34,6 @@ const mainBackgroundUrl = computed(() => `url(${ props.application?.avatarUrl })
 
 main.bg-logo {
   background-image: v-bind(mainBackgroundUrl);
-  @apply bg-center bg-no-repeat;
-  background-size: 50dvw;
+  @apply bg-center bg-no-repeat bg-['25%'];
 }
 </style>

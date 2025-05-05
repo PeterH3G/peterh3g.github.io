@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { NuxtImg } from '#components';
+import { Body, NuxtImg } from '#components';
 
 const props = defineProps<{
   footer: any,
@@ -30,28 +30,38 @@ const footer = computed(() => {
 </script>
 
 <template>
-  <UContainer as="footer" class="app-footer text-xs xs:flex xs:flex-col md:flex items-center justify-between gap-4">
-    <section class="footer-github w-full mb-4 md:mb-0">
+  <UContainer as="footer" class="app-footer text-xs grid md:grid-cols-2 items-center gap-4">
+
+    <UCard as="section" class="github" :ui="{
+      root: 'w-full h-full flex justify-center items-center',
+      body: 'w-full h-full flex flex-col justify-center items-center'
+    }">
       <UButton v-for="item in footer.items" :key="item.url" trailing-icon="mdi:open-in-new" :href="item.url"
-        target="_blank" size="sm" :variant="item.variant" :ui="{
-          base: 'w-full h-full justify-center items-center'
+        target="_blank" :variant="item.variant" :ui="{
+          base: 'flex',
+          hover: 'hover:bg-primary-600',
+          focus: 'focus:bg-primary-700'
         }">
         <UIcon :name="item.icon" />
         <span v-text="item.title" />
       </UButton>
-    </section>
+    </UCard>
 
-    <section class="footer-disclaimer flex flex-col items-center justify-center w-full h-full">
-      <strong class="flex items-center justify-center">
+    <UCard as="section" class="disclaimer" :ui="{
+      root: 'w-full h-full flex justify-center items-center',
+      body: 'w-full h-full flex flex-col justify-center items-center'
+    }">
+      <strong class="app-name flex justify-center items-center">
         <NuxtImg :src="footer.avatarUrl" alt="logo" width="18" height="18" />
         <span v-text="footer.name" />
       </strong>
 
-      <em v-text="footer.description" />
-      <span class="inline-flex items-center">
+      <em class="description flex" v-text="footer.description" />
+
+      <span class="disclaimer-text flex items-center">
         <Icon name="mdi:copyright" />
         2025 All rights reserved
       </span>
-    </section>
+    </UCard>
   </UContainer>
 </template>
