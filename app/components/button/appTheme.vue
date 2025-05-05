@@ -18,10 +18,12 @@ const isDark = computed({
 
 const label = props.label || 'app-theme'
 const variant = props.variant || 'ghost'
+const iconLight = 'mdi:weather-sunny' as string
+const iconDark = 'mdi:weather-night' as string
 </script>
 
 <template>
-    <UButton v-if="!colorMode?.forced" class="app-theme" :icon="isDark ? `mdi:weather-sunny` : `mdi:weather-night`" :label="label"
+    <UButton v-if="!colorMode?.forced" class="app-theme" :icon="isDark ? iconLight : iconDark" :label="label"
         :variant="variant" @click="isDark = !isDark" :ui="{
             base: props.class,
         }" />
