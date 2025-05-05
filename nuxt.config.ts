@@ -44,6 +44,12 @@ export default defineNuxtConfig({
       routes.clear() // Do not generate any routes (except the defaults)
     }
   },
+  
+  nitro: {
+    prerender: {
+      routes: ['/'],
+    },
+  },
 
   modules: [
     '@nuxt/content',
