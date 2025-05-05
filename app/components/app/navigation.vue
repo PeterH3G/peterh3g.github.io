@@ -16,7 +16,7 @@ const { data: items } = await useAsyncData('navigation', async () => {
 <template>
     <UNavigationMenu highlight highlight-color="primary" :orientation="props.isHeader ? 'horizontal' : 'vertical'"
         :items="items" class="data-[orientation=horizontal]:horizontal data-[orientation=vertical]:vertical" :ui="{
-            root: `${isHeader ? 'hidden md:flex' : 'w-full h-full'}`,
+            root: `${isHeader ? 'hidden md:flex justify-end w-full h-full' : 'w-full h-full'}`,
             list: isHeader ? '' : 'w-full h-full',
             item: isHeader ? '' : 'w-full h-full',
             link: isHeader ? '' : 'w-full h-full text-2xl'

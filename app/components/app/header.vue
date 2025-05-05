@@ -10,8 +10,7 @@ const header = computed(() => {
 
 <template>
   <UContainer as="header" class="app-header inline-flex items-center justify-between gap-4">
-    <ButtonAppLogo
-      :logo="{ type: 'default', avatarUrl: header.avatarUrl, name: header.name }" />
+    <ButtonAppLogo :logo="{ type: 'default', avatarUrl: header.avatarUrl, name: header.name }" />
 
     <AppNavigation isHeader />
 
