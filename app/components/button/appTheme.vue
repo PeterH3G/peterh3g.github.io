@@ -25,6 +25,9 @@ const variant = props.variant || 'ghost'
         base: props.class,
     }">
         <Icon :name="isDark ? 'mdi:weather-sunny' : 'mdi-weather-night'" />
+        
+        <Icon name="mdi:white-balance-sunny" />
+
         <span v-text="label" />
     </UButton>
 </template>
