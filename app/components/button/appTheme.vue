@@ -24,10 +24,8 @@ const variant = props.variant || 'ghost'
     <UButton v-if="!colorMode?.forced" class="app-theme" :variant="variant" @click="isDark = !isDark" :ui="{
         base: props.class,
     }">
-        <Icon :name="isDark ? 'mdi:weather-sunny' : 'mdi-weather-night'" />
-        
-        <Icon name="mdi:white-balance-sunny" />
-
+        <Icon v-if="!isDark" name="mdi-weather-night" />
+        <Icon v-else name="mdi:white-balance-sunny" />
         <span v-text="label" />
     </UButton>
 </template>
