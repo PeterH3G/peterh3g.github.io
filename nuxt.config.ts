@@ -37,6 +37,8 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
 
+  ssr: false,
+
   modules: [
     '@nuxt/content',
     '@nuxt/eslint',
