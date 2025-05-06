@@ -1,18 +1,22 @@
 <script lang="ts" setup>
 const props = defineProps<{
-  header: any
+  app: any
 }>()
 
 const header = computed(() => {
-  return props.header
+  return props.app
 })
 </script>
 
 <template>
   <UContainer as="header" class="app-header inline-flex items-center justify-between gap-4">
-    <ButtonAppLogo :logo="{ type: 'default', avatarUrl: header.avatarUrl, name: header.name }" />
+    <ButtonAppLogo :logo="{
+      type: 'default',
+      logoUrl: header.appLogoUrl,
+      name: header.appName
+    }" />
 
-    <em class="app-description items-center flex w-full text-xs" v-text="header.description" />
+    <em class="app-description hidden md:flex items-center w-full" v-text="header.appDescription" />
 
     <AppNavigation isHeader />
 
@@ -21,7 +25,11 @@ const header = computed(() => {
     </UButtonGroup>
 
     <ButtonAppSidebar class="app-sidebar" :sidebar="{
-      type: 'default', title: header.name, label: 'Menu'
+      type: 'default',
+      logoUrl: header.appLogoUrl,
+      title: header.appName,
+      description: header.appDescription,
+      label: 'Menu'
     }" />
   </UContainer>
 </template>

@@ -1,42 +1,42 @@
-@import "tailwindcss";
-@import "@nuxt/ui";
+@import 'tailwindcss';
+@import '@nuxt/ui';
+
+/* Tailwind CSS classes in markdown files */
+/* @source: https://ui.nuxt.com/getting-started/theme#source  */
+@source "../../../content";
 
 @theme static {
-    --font-sans: 'Public Sans', sans-serif;
+  --font-sans: 'Public Sans', sans-serif;
 }
 
+/* @theme: define your project's custom design tokens, like fonts, colors, and breakpoints */
 @theme {
-    --breakpoint-*: initial;
-    --breakpoint-sm: 480px;
-    --breakpoint-md: 768px;
-    --breakpoint-lg: 976px;
+  --breakpoint-*: initial;
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 976px;
 }
 
 :root {
-    --ui-bg: var(--ui-color-neutral-300);
-    --ui-container: var(--container-4xl);
-    --ui-primary: var(--ui-color-primary-700);
+  --ui-container: var(--container-7xl);
+  --ui-bg: var(--ui-color-neutral-200);
+  --ui-primary: var(--ui-color-primary-700);
+  --ui-background: 177 1% 100%;
+  --ui-foreground: 177 52% 3.9%;
 }
 
 .dark {
-    --ui-bg: var(--ui-color-neutral-950);
-    --ui-primary: var(--ui-color-primary-500);
+  --ui-bg: var(--ui-color-neutral-950);
+  --ui-primary: var(--ui-color-primary-500);
+  --ui-background: 177 5% 3.9%;
+  --ui-foreground: 177 5% 98%;
 }
 
 body {
-    @apply antialiased text-default bg-default scheme-light dark:scheme-dark;
+  @apply antialiased text-xs bg-[--ui-background] scheme-light dark:scheme-dark;
 }
 
+/* Layout CSS */
 @utility app-layout {
-    @apply gap-y-4 py-4;
-}
-
-.bg-transparent {
-    background: radial-gradient(circle at center, rgba(255,255,255,.9), var(--ui-bg) 50%);
-}
-
-@variant dark {
-    .bg-transparent {
-        background: radial-gradient(circle at center, rgba(0,0,0,.99), var(--ui-bg) 50%);
-    }
+  @apply gap-y-4 py-4;
 }

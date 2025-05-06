@@ -1,15 +1,4 @@
 <script lang="ts" setup>
-// import 'defaults' for fallback values
-import { defaults } from '~/constants/app'
-
-// SEO configuration
-useSeoMeta({
-  title: defaults.name,
-  ogTitle: defaults.description,
-  description: defaults.description,
-  ogDescription: defaults.description,
-})
-
 // Github API data
 interface GithubUser {
   avatar_url?: string;
@@ -24,17 +13,21 @@ const apiGithubUser = await useFetch<GithubUser>('https://api.github.com/users/p
   pick: ['avatar_url', 'bio', 'blog', 'hireable', 'html_url', 'name', 'url']
 })
 
-// Application Component configirations
-const application = computed(() => {
-  const avatarUrl = apiGithubUser.data.value?.avatar_url || defaults.logoUrl
-  const name = apiGithubUser.data.value?.name || defaults.name
-  const description = apiGithubUser.data.value?.bio || defaults.description
-
+// Application Component configiration with fallback values
+const config = computed(() => {
   return {
-    avatarUrl,
-    name,
-    description
+    appName: apiGithubUser.data.value?.name || useAppConfig().app.name,
+    appDescription: apiGithubUser.data.value?.bio || useAppConfig().app.description,
+    appLogoUrl: apiGithubUser.data.value?.avatar_url || useAppConfig().app.logoUrl
   }
+})
+
+// SEO configuration
+useSeoMeta({
+  title: config.value.appName,
+  ogTitle: config.value.appDescription,
+  description: config.value.appDescription,
+  ogDescription: config.value.appDescription,
 })
 </script>
 
@@ -42,7 +35,7 @@ const application = computed(() => {
   <UApp>
     <NuxtLoadingIndicator />
     <NuxtRouteAnnouncer />
-    <NuxtLayout :application="application">
+    <NuxtLayout :app="config">
       <NuxtPage />
     </NuxtLayout>
   </UApp>

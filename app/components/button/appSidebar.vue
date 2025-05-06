@@ -1,22 +1,27 @@
 <script lang="ts" setup>
-import { defaults } from '~/constants/app'
-
 const props = defineProps<{
     sidebar?: any,
 }>()
 
+// Componoent configuration
 const sidebar = computed(() => {
     return {
-        description: props.sidebar.description || defaults.description,
-        title: props.sidebar.title || defaults.name,
+        // Props & Fallback values
+        avatarUrl: props.sidebar.avatarUrl,
+        name: props.sidebar.name,
+        description: props.sidebar.description,
+        title: props.sidebar.title,
         icon: props.sidebar.icon || 'mdi:menu',
-        avatarUrl: props.sidebar.avatarUrl || '',
+
+        // Navigation button
         button: {
             class: 'md:hidden',
             icon: '',
-            label: props.sidebar.label || defaults.name,
+            label: props.sidebar.label,
+            size: <any>'sm',
             variant: <any>'outline'
         },
+        // Navigation close button
         buttonClose: {
             class: 'rounded-full',
             color: <any>'primary',
@@ -25,26 +30,22 @@ const sidebar = computed(() => {
     }
 })
 
+// Sidebar state
 const open = ref(false)
 </script>
 
 <template>
-    <USlideover :description="sidebar.description" :title="sidebar.title" :close="{
-        color: sidebar.buttonClose.color,
-        variant: sidebar.buttonClose.variant,
-        class: sidebar.buttonClose.class
-    }" :ui="{
+    <USlideover :description="sidebar.description" :title="sidebar.title" :ui="{
         header: 'sidebar-header',
         body: 'sidebar-body',
         footer: 'sidebar-footer'
     }" v-model:open="open">
 
         <UButton class="sidebar-button" :class="sidebar.button.class" :icon="sidebar.icon" :label="sidebar.button.label"
-            :variant="sidebar.button.variant" />
+            :size="sidebar.button.size" :variant="sidebar.button.variant" />
         <template #body>
             <AppNavigation />
         </template>
-
         <template #footer>
             <ButtonAppTheme class="app-theme" label="Theme" />
         </template>

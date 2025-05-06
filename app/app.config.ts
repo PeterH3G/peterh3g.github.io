@@ -1,11 +1,18 @@
+// import 'defaults' for fallback values
+import { defaults } from '~/constants/app'
+
 export default defineAppConfig({
     app: {
-        logoUrl: 'https://avatars.githubusercontent.com/u/500234?s=400&u=623c6fa100138e5e8e681a959b0d7c8decbba90e&v=4'
+        // Fallback values
+        description: defaults.description,
+        logoUrl: defaults.logoUrl,
+        name: defaults.name,
     },
 
+    // Nuxt UI configuration
     ui: {
         container: {
-            base: 'w-full max-w-full mx-auto'
+            base: 'w-full max-w-(--ui-container) mx-auto px-4'
         }
     }
 })

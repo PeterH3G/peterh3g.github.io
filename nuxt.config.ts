@@ -1,11 +1,14 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 import { defaults, appHead } from './app/constants/app'
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
   app: {
     head: {
+      title: defaults.name, // default fallback title
       htmlAttrs: {
+        lang: 'en',
         class: appHead.htmlAttrs.class,
       },
       bodyAttrs: {
@@ -39,6 +42,12 @@ export default defineNuxtConfig({
 
   ssr: false,
 
+  vite: {
+    plugins: [
+      tailwindcss(),
+    ],
+  },
+
   modules: [
     '@nuxt/content',
     '@nuxt/eslint',
@@ -49,6 +58,16 @@ export default defineNuxtConfig({
     '@nuxt/test-utils',
     '@nuxt/ui'
   ],
+
+  // https://eslint.nuxt.com/packages/module
+  eslint: {
+    config: {
+      stylistic: {
+        indent: 'tab',
+        semi: true
+      }
+    }
+  },
 
   // https://icon-sets.iconify.design/mdi/?keyword=mdi
   icon: {

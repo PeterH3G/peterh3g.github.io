@@ -1,29 +1,21 @@
 <script lang="ts" setup>
 // Component props
 const props = defineProps<{
-  application: any
+  app: any
 }>()
 
-// Component variables
-const appHeader = computed(() => {
-  return props.application
-})
-const appFooter = computed(() => {
-  return props.application
-})
-
 // CSS variables
-const mainBackgroundUrl = computed(() => `url(${ props.application?.avatarUrl })`)
+const logoUrl = computed(() => `url(${props.app?.appLogoUrl})`)
 </script>
 
 <template>
-  <AppHeader :header="appHeader" />
+  <AppHeader :app="props.app" />
 
-  <UContainer as="main" class="flex flex-col w-full h-full bg-logo">
+  <UContainer as="main" class="content">
     <slot />
   </UContainer>
 
-  <AppFooter :footer="appFooter" />
+  <AppFooter :app="props.app" />
 </template>
 
 <style lang="css">
@@ -32,8 +24,13 @@ const mainBackgroundUrl = computed(() => `url(${ props.application?.avatarUrl })
   @apply h-full grid grid-cols-1 grid-rows-[auto_1fr_auto] items-center;
 }
 
-main.bg-logo {
-  background-image: v-bind(mainBackgroundUrl);
-  @apply bg-center bg-no-repeat bg-['25%'];
+main.content {
+  background-image: v-bind(logoUrl);
+  @apply bg-center bg-no-repeat;
+  @apply flex flex-col w-full h-full;
+}
+
+nav .mobile div:first {
+  height: 100% !important;
 }
 </style>

@@ -5,17 +5,17 @@ const props = defineProps<{
 
 const button = computed(() => {
     return {
-        avatarURl: props.logo?.avatarUrl || '',
+        logoSrc: props.logo?.logoUrl || '',
         name: props.logo?.name || '',
-        variant: props.logo?.variant || 'ghost',
         size: props.logo?.size || 'sm',
-        to: '/'
+        to: '/',
+        variant: props.logo?.variant || 'outline'
     }
 })
 </script>
 
 <template>
-    <UButton class="app-logo" :avatar="{ src: button.avatarURl }" :to="button.to" :variant="button.variant"
+    <UButton class="app-logo" :avatar="{ src: button.logoSrc }" :to="button.to" :variant="button.variant"
         :size="button.size">
         <span v-text="button.name" />
     </UButton>
