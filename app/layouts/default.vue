@@ -25,8 +25,13 @@ const logoUrl = computed(() => `url(${props.app?.appLogoUrl})`)
 }
 
 main.content {
-  background-image: v-bind(logoUrl);
-  @apply bg-center bg-no-repeat;
   @apply flex flex-col w-full h-full;
+  @apply bg-center bg-no-repeat;
+  background-image: v-bind(logoUrl);
+}
+
+main article.card {
+  @apply flex-grow;
+  background: radial-gradient(circle at center, rgba(0, 0, 0, .5), var(--ui-bg) 50%);
 }
 </style>
