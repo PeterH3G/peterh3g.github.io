@@ -20,7 +20,9 @@ const header = computed(() => {
 
     <AppNavigation isHeader />
 
-    <UButtonGroup class="app-buttons" :class="'hidden md:flex'">
+    <UButtonGroup :ui="{
+      base: 'app-buttons hidden md:flex'
+    }">
       <ButtonAppTheme class="app-theme" label="Theme" />
     </UButtonGroup>
 

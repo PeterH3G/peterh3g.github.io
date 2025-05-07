@@ -11,27 +11,27 @@ const logoUrl = computed(() => `url(${props.app?.appLogoUrl})`)
 <template>
   <AppHeader :app="props.app" />
 
-  <UContainer as="main" class="content">
+  <UContainer as="main" class="content bg-[url()]">
     <slot />
   </UContainer>
+
+  <UCard :ui="{
+    root: 'background  bg-size-[auto_250px] md:bg-auto absolute top-0 left-0 right-0 bottom-0 z-[-1] w-full h-full',
+    body: 'w-screen h-screen flex items-end justify-center'
+  }">
+    <UIcon class="flask size-30 md:size-40 animate-[pulse_5s_ease-in-out_infinite]" name="mdi:flask" />
+  </UCard>
 
   <AppFooter :app="props.app" />
 </template>
 
 <style lang="css">
-/** Global styles */
-#__nuxt.app-layout {
-  @apply h-full grid grid-cols-1 grid-rows-[auto_1fr_auto] items-center;
-}
-
 main.content {
   @apply flex flex-col w-full h-full;
-  @apply bg-center bg-no-repeat;
-  background-image: v-bind(logoUrl);
 }
 
-main article.card {
-  @apply flex-grow;
-  background: radial-gradient(circle at center, rgba(0, 0, 0, .5), var(--ui-bg) 50%);
+.background {
+  @apply bg-center bg-no-repeat;
+  background-image: v-bind(logoUrl);
 }
 </style>

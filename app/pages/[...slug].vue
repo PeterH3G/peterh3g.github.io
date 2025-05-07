@@ -11,6 +11,18 @@ useSeoMeta({
 </script>
 
 <template>
-  <ContentRenderer tag="article" class="card" v-if="page" :value="page" />
-  <article v-else class="card">Content not found</article>
+  <UCard as="article" v-if="page" :ui="{
+    root: 'page-card bg-page backdrop-blur-md grow',
+    header: 'page-card-header flex items-center gap-1',
+    body: 'page-card-body',
+    footer: 'page-card-footer'
+  }">
+    <template #header>
+      <UIcon :name="page?.icon" />
+      {{ page?.title }} | {{ page?.description }}
+    </template>
+    <ContentRenderer class="card" :value="page" />
+  </UCard>
+
+  <UCard v-else class="card">Content not found</UCard>
 </template>

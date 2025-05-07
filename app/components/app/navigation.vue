@@ -15,11 +15,11 @@ const { data: items } = await useAsyncData('navigation', async () => {
 
 const navigation = computed(() => {
     const defaults = {
-        root: 'relative flex gap-1.5 h-full [&>div]:min-w-0 [&>div]:min-h-full',
-        label: 'w-full flex items-center gap-2 font-semibold text-xs/5 text-highlighted px-2 py-2',
+        root: 'flex gap-1.5 h-full [&>div]:min-w-0 [&>div]:min-h-full',
+        label: 'w-full flex items-center gap-2 text-highlighted p-2',
         list: 'isolate min-w-0 flex flex-col h-full',
         item: 'min-w-0 h-full',
-        link: 'group flex w-full h-full flex items-center justify-center gap-1.5 font-medium text-sm',
+        link: 'group flex w-full h-full flex items-center justify-center gap-1',
         separator: 'px-2 h-px bg-border'
     }
 

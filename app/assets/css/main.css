@@ -20,6 +20,7 @@
 
 :root {
   --ui-container: var(--container-7xl);
+
   --ui-bg: var(--ui-color-neutral-200);
   --ui-primary: var(--ui-color-primary-700);
   --ui-background: 177 1% 100%;
@@ -31,14 +32,18 @@
   --ui-primary: var(--ui-color-primary-500);
   --ui-background: 177 5% 3.9%;
   --ui-foreground: 177 5% 98%;
-  --ui-bg-card: var(--ui-color-neutral-950);
 }
 
 body {
   @apply antialiased text-xs bg-[--ui-background] scheme-light dark:scheme-dark;
 }
 
-/* Layout CSS */
+/** Global styles */
 @utility app-layout {
-  @apply gap-y-4 py-4;
+  @apply gap-y-4 py-4 h-full items-center;
+  @apply grid grid-cols-1 grid-rows-[auto_1fr_auto];
+}
+
+@utility bg-glass {
+  @apply bg-radial from-default/50 to-default;
 }

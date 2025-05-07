@@ -1,8 +1,8 @@
 // Defaults / fallback values
 const defaults = {
-    name: 'default-name',
-    description: 'default-description',
-    logoUrl: '../../favicon.ico',
+    name: 'PeterH3G', // Fallback name
+    description: 'Github Pages', // Fallback description
+    logoUrl: '../../favicon.ico', // Fallback logo url
 }
 
 // Used for ./nuxt.config.ts

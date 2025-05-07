@@ -31,8 +31,10 @@ const footer = computed(() => {
 </script>
 
 <template>
-  <UContainer as="footer" class="app-footer">
-    <section class="footer-disclaimer flex flex-col justify-center items-center w-full">
+  <UContainer as="footer" class="app-footer backdrop-blur-md">
+    <UCard as="section" :ui="{
+      root: 'footer-disclaimer bg-glass flex flex-col justify-center items-center w-full',
+    }">
       <strong class="app-name flex justify-center items-center">
         <NuxtImg :src="footer.appLogoUrl" alt="logo" width="18" height="18" />
         <span v-text="footer.appName" />
@@ -44,6 +46,6 @@ const footer = computed(() => {
         <Icon name="mdi:copyright" />
         2025 All rights reserved
       </span>
-    </section>
+    </UCard>
   </UContainer>
 </template>
