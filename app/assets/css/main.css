@@ -2,8 +2,9 @@
 @import '@nuxt/ui';
 
 /* Tailwind CSS classes in markdown files */
-/* @source: https://ui.nuxt.com/getting-started/theme#source  */
+/* @source: https://ui.nuxt.com/getting-started/theme#source 
 @source "../../../content";
+ */
 
 @theme static {
   --font-sans: 'Public Sans', sans-serif;
@@ -30,6 +31,7 @@
   --ui-primary: var(--ui-color-primary-500);
   --ui-background: 177 5% 3.9%;
   --ui-foreground: 177 5% 98%;
+  --ui-bg-card: var(--ui-color-neutral-950);
 }
 
 body {

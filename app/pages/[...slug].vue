@@ -11,40 +11,6 @@ useSeoMeta({
 </script>
 
 <template>
-  <UCard as="article" class="page-card" :ui="{
-    root: 'grid grid-cols-1 grid-rows-[auto_1fr_auto] h-full bg-default/90',
-    header: 'flex justify-between items-center w-full',
-  }">
-    <template #header>
-      <strong class="page-title">
-        <UIcon :name="`${page?.icon}`" />
-        <span v-text="`${page?.title} | ${page?.description}`" />
-      </strong>
-
-      <span class="page-options">Options</span>
-    </template>
-
-    <ContentRenderer v-if="page" :value="page" />
-    <div v-else>Content not found</div>
-  </UCard>
+  <ContentRenderer tag="article" class="card" v-if="page" :value="page" />
+  <article v-else class="card">Content not found</article>
 </template>
-
-<style lang="css" scoped>
-.page-title,
-.page-icon,
-.page-options {
-  @apply flex items-center;
-}
-
-.page-title {
-  @apply justify-start;
-}
-
-.page-icon {
-  @apply mx-auto;
-}
-
-.page-options {
-  @apply justify-end;
-}
-</style>

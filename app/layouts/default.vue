@@ -29,8 +29,4 @@ main.content {
   @apply bg-center bg-no-repeat;
   @apply flex flex-col w-full h-full;
 }
-
-nav .mobile div:first {
-  height: 100% !important;
-}
 </style>
