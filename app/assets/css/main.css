@@ -7,7 +7,7 @@
  */
 
 @theme static {
-  --font-sans: 'Public Sans', sans-serif;
+  --font-sans: 'Helvetica', sans-serif;
 }
 
 /* @theme: define your project's custom design tokens, like fonts, colors, and breakpoints */
