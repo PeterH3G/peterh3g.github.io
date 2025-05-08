@@ -35,7 +35,7 @@
 }
 
 body {
-  @apply antialiased text-xs bg-[--ui-background] scheme-light dark:scheme-dark;
+  @apply antialiased bg-[--ui-background] scheme-light dark:scheme-dark;
 }
 
 /** Global styles */

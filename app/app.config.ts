@@ -9,7 +9,7 @@ export default defineAppConfig({
         name: defaults.name,
     },
 
-    // Nuxt UI configuration
+    // Nuxt UI Overrides
     ui: {
         container: {
             base: 'w-full max-w-(--ui-container) mx-auto px-4'

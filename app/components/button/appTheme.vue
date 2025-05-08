@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 const props = defineProps<{
-    class?: string,
-    gridItem?: boolean,
+    isHeader?: boolean,
     label?: string,
     variant?: any,
+    ui?: any,
 }>()
 
 const colorMode = useColorMode()
@@ -17,25 +17,22 @@ const isDark = computed({
 })
 
 const button = computed(() => {
-    const label = props.label || 'app-theme'
-    const variant = props.variant || 'ghost'
     return {
-        color: isDark ? 'neutral' : 'primary',
-        label,
-        variant
+        color: isDark ? 'neutral' : 'primary' as any,
+        label: props.label || 'Change Theme',
+        variant: props.variant || 'outline',
+        ui: {
+            base: `app-theme ${props.isHeader ? 'hidden md:flex h-full' : ''}`
+        },
     }
 })
 </script>
 
 <template>
     <ClientOnly v-if="!colorMode?.forced">
-        <UButton :color="button.color" :variant="button.variant" @click="isDark = !isDark">
+        <UButton @click="isDark = !isDark" v-bind="button">
             <Icon name="themeSwitch" />
             <span v-text="button.label" />
         </UButton>
-
-        <template #fallback>
-            <div class="size-8" />
-        </template>
     </ClientOnly>
 </template>

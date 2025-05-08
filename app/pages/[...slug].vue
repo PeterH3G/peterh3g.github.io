@@ -8,21 +8,29 @@ useSeoMeta({
   title: `${page.value?.title} | ${page.value?.description}`,
   description: () => `${page.value?.description}`
 })
+
+const card = computed(() => {
+  return {
+    title: page.value?.title || 'Card',
+    description: page.value?.description || '',
+    icon: page.value?.icon || '' as string,
+  }
+})
 </script>
 
 <template>
-  <UCard as="article" v-if="page" :ui="{
+  <UCard as="article" :ui="{
     root: 'page-card bg-page backdrop-blur-md grow',
     header: 'page-card-header flex items-center gap-1',
-    body: 'page-card-body',
+    body: 'page-card-body prose',
     footer: 'page-card-footer'
   }">
     <template #header>
-      <UIcon :name="page?.icon" />
-      {{ page?.title }} | {{ page?.description }}
+      <UIcon :name="card.icon" />
+      {{ card.title }} | {{ card.description }}
     </template>
-    <ContentRenderer class="card" :value="page" />
-  </UCard>
 
-  <UCard v-else class="card">Content not found</UCard>
+    <ContentRenderer v-if="page" class="card" :value="page" />
+    <div v-else class="card">Content not found</div>
+  </UCard>
 </template>

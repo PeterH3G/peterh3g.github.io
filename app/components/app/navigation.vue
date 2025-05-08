@@ -14,40 +14,32 @@ const { data: items } = await useAsyncData('navigation', async () => {
 })
 
 const navigation = computed(() => {
-    const defaults = {
-        root: 'flex gap-1.5 h-full [&>div]:min-w-0 [&>div]:min-h-full',
-        label: 'w-full flex items-center gap-2 text-highlighted p-2',
-        list: 'isolate min-w-0 flex flex-col h-full',
-        item: 'min-w-0 h-full',
-        link: 'group flex w-full h-full flex items-center justify-center gap-1',
-        separator: 'px-2 h-px bg-border'
+    const orientation = props.isHeader ? <any>'horizontal' : <any>'vertical'
+
+    const uiDefault = {
+        root: 'h-full w-full [&>div]:min-w-full [&>div]:min-h-full',
+        list: 'flex flex-col h-full',
+        item: 'py-0 grow',
+        link: 'flex h-full'
     }
 
-    const desktop = {
-        root: 'desktop hidden md:flex items-center justify-end',
-        label: '',
-        list: '',
-        item: '',
-        link: '',
-        separator: 'px-2 h-px bg-border',
+    const uiDesktop = {
+        root: 'hidden md:flex grow self-stretch items-stretch [&>div]:min-w-full [&>div]:min-h-full',
+        list: 'flex h-full',
+        item: 'py-0 flex h-full'
     }
 
     return {
-        defaults,
-        desktop
+        orientation,
+        uiDefault,
+        uiDesktop
     }
 })
 </script>
 
 <template>
-    <UNavigationMenu highlight highlight-color="primary" :orientation="props.isHeader ? 'horizontal' : 'vertical'"
-        :items="items" class="data-[orientation=horizontal]:horizontal data-[orientation=vertical]:vertical" :ui="{
-            root: props.isHeader ? navigation.desktop.root : navigation.defaults.root,
-            label: props.isHeader ? navigation.desktop.label : navigation.defaults.label,
-            list: props.isHeader ? navigation.desktop.list : navigation.defaults.list,
-            item: props.isHeader ? navigation.desktop.item : navigation.defaults.item,
-            link: props.isHeader ? navigation.desktop.link : navigation.defaults.link,
-            separator: props.isHeader ? navigation.desktop.separator : navigation.defaults.separator
-        }">
+    <UNavigationMenu :items="items"
+        class="app-navigation data-[orientation=horizontal]:horizontal data-[orientation=vertical]:vertical"
+        :orientation="navigation.orientation" v-bind:ui="props.isHeader ? navigation.uiDesktop : navigation.uiDefault">
     </UNavigationMenu>
 </template>
