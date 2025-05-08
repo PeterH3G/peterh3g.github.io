@@ -35,17 +35,16 @@ const footer = computed(() => {
     <UCard as="section" :ui="{
       root: 'footer-disclaimer bg-glass flex flex-col justify-center items-center w-full',
     }">
-      <strong class="app-name flex justify-center items-center">
-        <NuxtImg :src="footer.appLogoUrl" alt="logo" width="18" height="18" />
+      <strong class="app-name flex flex-col justify-center items-center text-sm">
+        <NuxtImg :src="footer.appLogoUrl" alt="logo" width="32" height="32" />
         <span v-text="footer.appName" />
       </strong>
 
-      <em class="description flex" v-text="footer.appDescription" />
+      <em class="app-description text-xs" v-text="footer.appDescription" />
 
-      <span class="disclaimer-text flex items-center">
-        <Icon name="mdi:copyright" />
-        2025 All rights reserved
-      </span>
+      <sub class="disclaimer-text flex items-center justify-center">
+        <Icon name="mdi:copyright" /> 2025 All rights reserved
+      </sub>
     </UCard>
   </UContainer>
 </template>
