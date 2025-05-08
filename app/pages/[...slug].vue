@@ -20,17 +20,20 @@ const card = computed(() => {
 
 <template>
   <UCard as="article" :ui="{
-    root: 'page-card bg-page backdrop-blur-md grow',
-    header: 'page-card-header flex items-center gap-1',
-    body: 'page-card-body prose',
-    footer: 'page-card-footer'
+    root: 'page grow',
+    header: 'header',
+    body: 'body prose',
+    footer: 'footer'
   }">
     <template #header>
       <UIcon :name="card.icon" />
       {{ card.title }} | {{ card.description }}
     </template>
 
-    <ContentRenderer v-if="page" class="card" :value="page" />
-    <div v-else class="card">Content not found</div>
+    <ContentRenderer v-if="page" :value="page" />
+
+    <div v-else>Content not found</div>
+
+    <template #footer></template>
   </UCard>
 </template>

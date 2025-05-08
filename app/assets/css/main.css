@@ -38,12 +38,32 @@ body {
   @apply antialiased bg-[--ui-background] scheme-light dark:scheme-dark;
 }
 
-/** Global styles */
-@utility app-layout {
-  @apply gap-y-4 py-4 h-full items-center;
+/** Card Components */
+:is(.app-layout) {
+  @apply h-full gap-y-0 md:gap-y-4 py-2 md:py-4;
   @apply grid grid-cols-1 grid-rows-[auto_1fr_auto];
+  @apply bg-radial from-default/50 to-default;
 }
 
-@utility bg-glass {
-  @apply bg-radial from-default/50 to-default;
+main.content {
+  @apply bg-size-[auto_50%] md:bg-size-[auto_75%];
+}
+
+article.page {
+  @apply grid grid-cols-1 grid-rows-[auto_1fr_auto] h-full;
+  @apply backdrop-blur-sm;
+  @apply bg-default/10;
+}
+article.page .header,
+article.page .body,
+article.page .footer {
+  @apply text-sm md:text-base;
+}
+article.page .body {
+  @apply border-none;
+}
+
+/** Global styles */
+@utility app-footer {
+  @apply text-secondary;
 }

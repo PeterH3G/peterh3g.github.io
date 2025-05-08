@@ -9,6 +9,18 @@ export default defineAppConfig({
         name: defaults.name,
     },
 
+    // Layout components/elements configuration
+    layout: {
+        app: {
+            logo: ''
+        },
+        main: '',
+        footer: {
+            logo: ''
+        },
+        background: {}
+    },
+
     // Nuxt UI Overrides
     ui: {
         container: {
