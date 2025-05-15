@@ -1,0 +1,1 @@
+import{_ as t}from"./DlAUqK2U.js";import{f as a,o as s,q as n,a as l,s as _,i as c}from"./iRutQljJ.js";const f={};function d(o,e){const r=l("PageCard");return s(),a(r,null,{default:n(()=>[e[0]||(e[0]=_(" Error layout ")),c(o.$slots,"default")]),_:3,__:[0]})}const u=t(f,[["render",d]]);export{u as default};
