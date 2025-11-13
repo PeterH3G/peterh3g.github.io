@@ -1,1 +1,0 @@
-import{a2 as s,I as r,D as n,B as o}from"./CBtFaJML.js";const t={};function a(e,c){return n(),r("li",null,[o(e.$slots,"default")])}const _=Object.assign(s(t,[["render",a]]),{__name:"ProseLi"});export{_ as default};
