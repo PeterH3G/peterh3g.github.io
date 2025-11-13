@@ -1,0 +1,1 @@
+import{R as s,S as o,E as r,D as n}from"./y3EK-d3o.js";const t={};function a(e,c){return r(),o("ol",null,[n(e.$slots,"default")])}const _=Object.assign(s(t,[["render",a]]),{__name:"ProseOl"});export{_ as default};

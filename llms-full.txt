@@ -1,16 +1,15 @@
-# Docs
+# Hello Universe!
 
-Docs markdown content goes here.
+::hero
+---
+orientation: vertical
+---
+#headline
+New release
 
+#title
+Hello Universe!
 
-# Hi...
-
-Here is some local content.
-
-
-# My Github
-
-
-# Docs
-
-Docs markdown content goes here.
+#description
+**Nuxt 4** with *Nuxt UI* and *Nuxt Content*
+::
