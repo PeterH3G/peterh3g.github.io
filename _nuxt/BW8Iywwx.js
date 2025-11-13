@@ -1,0 +1,1 @@
+import{a2 as s,I as r,D as t,B as n}from"./CBtFaJML.js";const o={};function a(e,c){return t(),r("td",null,[n(e.$slots,"default")])}const _=Object.assign(s(o,[["render",a]]),{__name:"ProseTd"});export{_ as default};
