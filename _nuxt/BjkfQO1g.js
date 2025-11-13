@@ -1,0 +1,1 @@
+import{a2 as r,I as s,D as t,B as n}from"./p_hECORd.js";const o={};function a(e,c){return t(),s("tr",null,[n(e.$slots,"default")])}const _=Object.assign(r(o,[["render",a]]),{__name:"ProseTr"});export{_ as default};
