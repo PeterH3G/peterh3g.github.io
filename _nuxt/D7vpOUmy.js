@@ -1,0 +1,1 @@
+import{l as r,c as l,M as c,o as p,i as u,n as i,m as s}from"./xtleDcOO.js";const m={base:""},g={__name:"ProseStrong",props:{class:{type:null,required:!1}},setup(e){const o=e,a=r(),t=l(()=>s({extend:s(m),...a.ui?.prose?.strong||{}}));return(n,f)=>(p(),c("strong",{class:i(t.value({class:o.class}))},[u(n.$slots,"default")],2))}};export{g as default};
