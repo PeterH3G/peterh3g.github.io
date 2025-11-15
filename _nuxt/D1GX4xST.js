@@ -1,0 +1,1 @@
+import{l as n,c,M as r,o as p,i as u,n as d,m as e}from"./CnnZrdG2.js";const m={base:"bg-muted"},h={__name:"ProseThead",props:{class:{type:null,required:!1}},setup(s){const a=s,t=n(),o=c(()=>e({extend:e(m),...t.ui?.prose?.thead||{}}));return(l,i)=>(p(),r("thead",{class:d(o.value({class:a.class}))},[u(l.$slots,"default")],2))}};export{h as default};

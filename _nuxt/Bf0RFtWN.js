@@ -1,0 +1,1 @@
+import{l as n,c,M as r,o as p,i as u,n as d,m as s}from"./CnnZrdG2.js";const i={base:""},_={__name:"ProseTbody",props:{class:{type:null,required:!1}},setup(e){const o=e,a=n(),t=c(()=>s({extend:s(i),...a.ui?.prose?.tbody||{}}));return(l,m)=>(p(),r("tbody",{class:d(t.value({class:o.class}))},[u(l.$slots,"default")],2))}};export{_ as default};
