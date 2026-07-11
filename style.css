@@ -20,6 +20,8 @@ html, body {
 body {
     display: grid;
     grid-template-rows: auto 1fr auto;
+    padding: 45px; /* Matches GitHub's repo page padding */
+
     background-color: #0d1117; /* GitHub Dark Canvas */
     color: #c9d1d9;            /* GitHub Dark Foreground */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
@@ -29,7 +31,6 @@ body {
 header, main, footer {
     z-index: 1;         /* Ensures text stays above the particles */
     max-width: 980px;
-    padding: 0 45px; /* Matches GitHub's repo page padding */
 }
 
 main.container {
@@ -38,6 +39,13 @@ main.container {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+footer .bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .7rem;
 }
 
 /* Typography */
