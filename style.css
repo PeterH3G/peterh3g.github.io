@@ -20,7 +20,7 @@ html, body {
 body {
     display: grid;
     grid-template-rows: auto 1fr auto;
-    padding: 45px; /* Matches GitHub's repo page padding */
+    padding: 0 45px; /* Matches GitHub's repo page padding */
 
     background-color: #0d1117; /* GitHub Dark Canvas */
     color: #c9d1d9;            /* GitHub Dark Foreground */
@@ -43,8 +43,8 @@ main.container {
 
 footer .bottom {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     font-size: .7rem;
 }
 
