@@ -1,36 +1,33 @@
-/* Base Page Styles */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Pushes the particles behind everything else */
+    background-color: #0d1117; /* Matches GitHub dark canvas */
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background-color: #0d1117; /* GitHub Dark Canvas */
     color: #c9d1d9;            /* GitHub Dark Foreground */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-    margin: 0;
-    padding: 20px; /* Added padding so the container doesn't touch screen edges */
     line-height: 1.5;
 }
 
-/* Particles Background Setup */
-#particles-js {
-position: fixed;
-width: 100%;
-height: 100%;
-top: 0;
-left: 0;
-z-index: -1; /* Puts particles behind the text */
-pointer-events: none; /* Ensures you can still highlight text and click links easily */
-}
-
 .container {
+    position: relative; /* Required for z-index to work */
+    z-index: 1;         /* Ensures text stays above the particles */
     max-width: 980px;
     margin: 0 auto;
-    padding: 45px;
-
-    /* Keeps content above particles and adds a translucent background for readability */
-    position: relative;
-    z-index: 1;
-    background-color: rgba(13, 17, 23, 0.85); /* 85% opaque GitHub Dark Canvas */
-    border-radius: 12px;
-    border: 1px solid #30363d; /* GitHub Dark Border */
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    padding: 45px; /* Matches GitHub's repo page padding */
 }
 
 /* Typography */

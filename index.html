@@ -5,74 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PeterH3G's GitHub Pages</title>
 
+    <!-- 1. Link to the external CSS file -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- 2. Include marked.js to parse Markdown into HTML -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <!-- 3. Include particles.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/1.0.0/particles.min.js"></script>
 </head>
 <body>
-
-    <!-- 1. The canvas container for particles.js -->
+    <!-- 4. Container for particles.js background -->
     <div id="particles-js"></div>
 
     <div class="container">
-        <!-- 2. The Markdown content will be injected here -->
+        <!-- 5. The Markdown content will be injected into this div -->
         <div id="markdown-content" class="markdown-body">Loading README.md...</div>
     </div>
 
-    <!-- 3. Load particles.js from the CDN you specified -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/1.0.0/particles.min.js"></script>
-
-    <!-- 4. Initialize particles.js -->
     <script>
-        // Configure the particle animation
-        particlesJS('particles-js', {
-            "particles": {
-                "number": {
-                    "value": 60,
-                    "density": { "enable": true, "value_area": 800 }
-                },
-                "color": { "value": "#8b949e" }, /* GitHub Dark Muted Gray */
-                "shape": { "type": "circle" },
-                "opacity": {
-                    "value": 0.4,
-                    "random": true
-                },
-                "size": {
-                    "value": 2.5,
-                    "random": true
-                },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#30363d", /* GitHub Dark Border color for the lines */
-                    "opacity": 0.4,
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 1.5, /* Slow, subtle movement */
-                    "direction": "none",
-                    "random": false,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false
-                }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    /* Disabled hover/clicks so particles don't interfere with reading/scrolling */
-                    "onhover": { "enable": false },
-                    "onclick": { "enable": false },
-                    "resize": true
-                }
-            },
-            "retina_detect": true
-        });
-
-        // Fetch and parse README.md
+        // 6. Fetch the README.md file and parse it
         fetch('README.md')
             .then(response => {
-                if (!response.ok) throw new Error('Could not find README.md');
+                if (!response.ok) {
+                    throw new Error('Could not find README.md in this directory.');
+                }
                 return response.text();
             })
             .then(markdown => {
@@ -80,7 +37,57 @@
             })
             .catch(error => {
                 document.getElementById('markdown-content').innerHTML = '<p style="color: #f85149;">Error: ' + error.message + '</p>';
+                console.error('Error loading README.md:', error);
             });
+
+        // 7. Initialize particles.js with GitHub Dark Theme colors
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 80,
+                    density: { enable: true, value_area: 800 }
+                },
+                color: { value: "#58a6ff" }, // GitHub dark accent blue
+                shape: {
+                    type: 'circle',
+                    stroke: { width: 0, color: '#000000' }
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false
+                },
+                size: {
+                    value: 3,
+                    random: true
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#58a6ff',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    out_mode: 'out'
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'repulse' }, // Particles move away from cursor
+                    onclick: { enable: true, mode: 'push' },    // Clicking adds new particles
+                    resize: true
+                },
+                modes: {
+                    repulse: { distance: 100, duration: 0.4 },
+                    push: { particles_nb: 4 }
+                }
+            },
+            retina_detect: true
+        });
     </script>
 </body>
 </html>
