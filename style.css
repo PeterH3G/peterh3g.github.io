@@ -30,7 +30,7 @@ body {
     max-width: 980px;
     height: 100%;
     margin: 0 auto;
-    padding: 45px; /* Matches GitHub's repo page padding */
+    padding: 0 45px; /* Matches GitHub's repo page padding */
     display: flex;
     align-items: center;
     justify-content: center;
