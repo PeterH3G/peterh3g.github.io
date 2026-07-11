@@ -4,50 +4,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PeterH3G's GitHub Pages</title>
+
+    <!-- 1. Include marked.js to parse Markdown into HTML -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f0f2f5;
             color: #333;
+            margin: 0;
+            padding: 2rem;
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
         }
         .container {
             background: white;
             padding: 2rem 3rem;
             border-radius: 12px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            max-width: 500px;
+            max-width: 800px;
+            width: 100%;
         }
-        h1 {
-            color: #0366d6; /* GitHub blue */
-            margin-bottom: 0.5rem;
+
+        /* 2. Styling for the parsed Markdown elements to look clean */
+        .markdown-body h1, .markdown-body h2, .markdown-body h3 {
+            color: #0366d6;
+            border-bottom: 1px solid #eaecef;
+            padding-bottom: 0.3em;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
         }
-        p {
-            font-size: 1.1rem;
-            color: #555;
+        .markdown-body a {
+            color: #0366d6;
+            text-decoration: none;
         }
-        .badge {
-            display: inline-block;
-            background-color: #28a745;
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin-top: 1rem;
+        .markdown-body a:hover { text-decoration: underline; }
+        .markdown-body code {
+            background-color: #f6f8fa;
+            padding: 0.2em 0.4em;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+        .markdown-body pre {
+            background-color: #f6f8fa;
+            padding: 1rem;
+            border-radius: 6px;
+            overflow: auto;
+        }
+        .markdown-body pre code { background: none; padding: 0; }
+        .markdown-body img { max-width: 100%; }
+        .markdown-body blockquote {
+            border-left: 4px solid #dfe2e5;
+            padding: 0 1em;
+            color: #6a737d;
+            margin: 0;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Hello, World!</h1>
-        <p>Welcome to <strong>peterh3g.github.io</strong>.</p>
-        <p>This is a test webpage successfully hosted on GitHub Pages.</p>
-        <div class="badge">✓ Deployment Successful</div>
+        <!-- 3. The Markdown content will be injected into this div -->
+        <div id="markdown-content" class="markdown-body">Loading README.md...</div>
     </div>
+
+    <script>
+        // 4. Fetch the README.md file and parse it
+        fetch('README.md')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Could not find README.md in this directory.');
+                }
+                return response.text();
+            })
+            .then(markdown => {
+                // Convert Markdown to HTML and inject it into the page
+                document.getElementById('markdown-content').innerHTML = marked.parse(markdown);
+            })
+            .catch(error => {
+                document.getElementById('markdown-content').innerHTML = '<p style="color: red;">Error: ' + error.message + '</p>';
+                console.error('Error loading README.md:', error);
+            });
+    </script>
 </body>
 </html>
