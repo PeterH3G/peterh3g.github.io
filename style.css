@@ -31,6 +31,7 @@ body {
 
 header, main, footer {
     z-index: 1;         /* Ensures text stays above the particles */
+    width: 100%;
     max-width: 980px;
     padding: 0 45px;    /* Matches GitHub's repo page padding */
 }
@@ -48,11 +49,17 @@ main.container {
     justify-content: center;
 }
 
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+
 footer .bottom {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-bottom: 20px; /* Matches GitHub's repo page padding */
     font-size: .8rem;
 }
