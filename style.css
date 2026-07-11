@@ -51,10 +51,8 @@ main.container {
 
 footer {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     padding-bottom: 20px;
+}
 
 footer .bottom {
     display: flex;
