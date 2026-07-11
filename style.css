@@ -27,15 +27,14 @@ body {
 }
 
 header, main, footer {
+    z-index: 1;         /* Ensures text stays above the particles */
     max-width: 980px;
     padding: 0 45px; /* Matches GitHub's repo page padding */
 }
 
 main.container {
     position: relative; /* Required for z-index to work */
-    z-index: 1;         /* Ensures text stays above the particles */
     margin: 0 auto;
-
     display: flex;
     align-items: center;
     justify-content: center;
