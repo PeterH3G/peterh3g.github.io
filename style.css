@@ -50,8 +50,9 @@ main.container {
 
 footer .bottom {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-bottom: 45px; /* Matches GitHub's repo page padding */
-    font-size: .7rem;
+    padding-bottom: 20px; /* Matches GitHub's repo page padding */
+    font-size: .8rem;
 }
