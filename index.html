@@ -3,58 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PeterH3G's GitHub Pages</title>
+    <title>PeterH3G | My Pages</title>
 
-    <!-- 1. Link to the external CSS file -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- 2. Include marked.js to parse Markdown into HTML -->
+    <!-- External CDN libraries -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
-    <!-- 3. Include particles.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+  <script type="module" crossorigin src="/assets/index-iwbjoiPR.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CzlZ-6Ij.css">
 </head>
+
 <body>
-    <!-- 4. Container for particles.js background -->
     <div id="particles-js"></div>
 
     <header>
-        <a href="/">PeterH3G</a>
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="https://avatars.githubusercontent.com/u/500234?v=4" alt="PeterH3G logo" width="42" height="42" />
+                <strong>PeterH3G</strong>
+            </a>
+
+            <div class="header-center"></div>
+
+            <div class="header-right"></div>
+        </div>
     </header>
 
-    <main class="container">
-        <!-- 5. The Markdown content will be injected into this div -->
-        <div id="markdown-content" class="markdown-body">Loading README.md...</div>
+    <main>
+        <div class="container">
+            <div id="markdown-content" class="markdown-body">Loading README.md...</div>
+        </div>
     </main>
 
     <footer>
-        <div class="bottom">
-        <a href="/">PeterH3G &reg;</a> 2026 All rights reserved <br>
-        Powered by <a href="https://docs.github.com/en/pages">GitHub Pages</a>
+        <div class="container">
+            <div class="bottom">
+                <strong><img src="https://avatars.githubusercontent.com/u/500234?v=4" alt="PeterH3G logo" width="20" height="20" />PeterH3G &reg; 2026 All rights reserved</strong>
+                <strong>Powered by GitHub Pages </strong>
+            </div>
         </div>
     </footer>
 
-    <script>
-        // 6. Fetch the README.md file and parse it
-        fetch('README.md')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Could not find README.md in this directory.');
-                }
-                return response.text();
-            })
-            .then(markdown => {
-                document.getElementById('markdown-content').innerHTML = marked.parse(markdown);
-            })
-            .catch(error => {
-                document.getElementById('markdown-content').innerHTML = '<p style="color: #f85149;">Error: ' + error.message + '</p>';
-                console.error('Error loading README.md:', error);
-            });
-
-        // 7. Load particles.js configuration from the external JSON file
-        particlesJS.load('particles-js', 'particles.json', function() {
-            console.log('callback - particles.js configuration loaded');
-        });
-    </script>
+    <!-- Vite entry point -->
 </body>
 </html>
